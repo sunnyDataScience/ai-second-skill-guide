@@ -68,6 +68,19 @@
 
 ---
 
+## 路線工具包速查
+
+| 路線 | 必備 | 核心 | 加分 |
+|------|------|------|------|
+| **A 效率派** | ChatGPT / Gemini | Make / n8n | Napkin AI |
+| **B 作品派** | Claude / ChatGPT | NotebookLM + Gamma | Canva |
+| **C 數據派** | Code Interpreter | NotebookLM | Napkin AI |
+| **D 接案派** | ChatGPT / Claude | Skywork / Gamma | n8n |
+
+先選路線，再選工具。從「必備」開始，用到熟再加下一個。
+
+---
+
 ## 安全紅線
 
 - 公開資料 → 可以用
