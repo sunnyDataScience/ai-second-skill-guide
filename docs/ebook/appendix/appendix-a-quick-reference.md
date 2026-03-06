@@ -47,21 +47,24 @@
 
 ---
 
-## 任務→工具速查（2025–2026）
+## 任務→工具速查（2025–2026 全球版）
 
-| 任務 | 首選工具 | 替代方案 |
-|------|---------|---------|
-| 文字整理 | ChatGPT / Claude | Gemini / Notion AI |
-| E2E 多格式產出 | Skywork AI | Notion AI |
-| 深度研究 | NotebookLM / Perplexity | ChatGPT Deep Research |
-| 數據分析 | Code Interpreter / Claude Artifacts | Julius AI / Sheets + Gemini |
-| 簡報產出 | Gamma / Skywork AI | Plus AI / Canva |
-| 文字→視覺化 | Napkin AI | Canva / Miro AI |
-| 視覺設計 | Canva AI (Magic Studio) | Figma AI / Adobe Firefly |
-| 自動化 | n8n / Make | — |
-| 程式輔助 | Cursor / GitHub Copilot | Claude Code |
+| 任務 | 首選工具 | 國家 | 替代方案 |
+|------|---------|------|---------|
+| AI 助手 | ChatGPT / Claude | 🇺🇸 | DeepSeek 🇨🇳 / Mistral 🇫🇷 |
+| E2E 工作站 | Skywork / NotebookLM | 🇨🇳 / 🇺🇸 | Notion AI 🇺🇸 |
+| 深度研究 | NotebookLM / Perplexity | 🇺🇸 | ChatGPT Deep Research |
+| 數據分析 | Code Interpreter / Artifacts | 🇺🇸 | Julius AI / Sheets+Gemini |
+| 簡報產出 | Gamma / Skywork | 🇺🇸 / 🇨🇳 | Plus AI / Canva 🇦🇺 |
+| 文字→視覺化 | Napkin AI | 🇺🇸 | Lovart 🇨🇳 / Miro 🇳🇱 |
+| 圖像生成 | Midjourney / GPT Image | 🇺🇸 | Ideogram 🇨🇦 / Krea 🇺🇸 |
+| 影片生成 | Runway / Kling | 🇺🇸 / 🇨🇳 | Sora 🇺🇸 / Higgsfield 🇺🇸 |
+| 視覺設計 | Canva AI | 🇦🇺 | Figma AI 🇺🇸 |
+| 自動化 | n8n / Make | 🇩🇪 / 🇨🇿 | — |
+| App 建構 | Lovable / Bolt | 🇸🇪 / 🇺🇸 | v0 🇺🇸 |
+| 程式輔助 | Cursor / Copilot | 🇺🇸 | Claude Code 🇺🇸 |
 
-選工具看兩件事：社群活不活絡、能不能 E2E 跑通。
+選工具看四件事：社群活不活絡、能不能 E2E 跑通、成本效益、獨特優勢。
 
 ---
 
