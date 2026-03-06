@@ -47,15 +47,17 @@
 
 ---
 
-## 任務→工具速查
+## 任務→工具速查（2025–2026）
 
-| 任務 | 推薦工具 |
-|------|---------|
-| 文字整理 | ChatGPT / Claude |
-| 數據分析 | Code Interpreter / Sheets + Gemini |
-| 簡報產出 | ChatGPT 寫稿 + Gamma 排版 |
-| 自動化 | Make / Zapier |
-| 設計 | Canva AI |
+| 任務 | 首選工具 | 替代方案 |
+|------|---------|---------|
+| 文字整理 | ChatGPT / Claude | Gemini / Notion AI |
+| 深度研究 | NotebookLM / Perplexity | ChatGPT Deep Research |
+| 數據分析 | Code Interpreter / Claude Artifacts | Julius AI / Sheets + Gemini |
+| 簡報產出 | Gamma / Plus AI | Beautiful.ai / Canva |
+| 視覺設計 | Canva AI (Magic Studio) | Figma AI / Adobe Firefly |
+| 自動化 | Zapier / Make / n8n | — |
+| 程式輔助 | Cursor / GitHub Copilot | Claude Code |
 
 原則：一個任務用一個工具，用到熟再換。
 
