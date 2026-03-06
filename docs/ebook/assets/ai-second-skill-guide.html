@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 第二專長培養指南</title>
+<style>
+  /* ===== ARK Invest Inspired Design System ===== */
+  :root {
+    --ark-black: #0a0a0a;
+    --ark-dark: #141419;
+    --ark-navy: #1a1a2e;
+    --ark-blue: #3b82f6;
+    --ark-blue-light: #60a5fa;
+    --ark-blue-glow: rgba(59, 130, 246, 0.15);
+    --ark-accent: #f97316;
+    --ark-accent-light: #fb923c;
+    --ark-white: #ffffff;
+    --ark-gray-50: #fafafa;
+    --ark-gray-100: #f4f4f5;
+    --ark-gray-200: #e4e4e7;
+    --ark-gray-300: #d4d4d8;
+    --ark-gray-400: #a1a1aa;
+    --ark-gray-500: #71717a;
+    --ark-gray-600: #52525b;
+    --ark-gray-700: #3f3f46;
+    --ark-gray-800: #27272a;
+    --ark-text: #18181b;
+    --ark-text-secondary: #52525b;
+    --ark-green: #22c55e;
+    --ark-red: #ef4444;
+    --ark-purple: #a855f7;
+    --ark-cyan: #06b6d4;
+    --font-display: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ark-text);
+    background: var(--ark-gray-50);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Cover Page ===== */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--ark-black) 0%, var(--ark-navy) 50%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+    animation: coverGlow 15s ease-in-out infinite alternate;
+  }
+
+  @keyframes coverGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(3deg); }
+  }
+
+  .cover-content { position: relative; z-index: 1; max-width: 800px; }
+
+  .cover-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 100px;
+    color: var(--ark-blue-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .cover h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: var(--ark-white);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .cover h1 span {
+    background: linear-gradient(135deg, var(--ark-blue-light), var(--ark-accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cover-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--ark-gray-400);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .cover-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ark-gray-400);
+    font-size: 0.9rem;
+  }
+
+  .cover-meta-item svg { width: 18px; height: 18px; stroke: var(--ark-blue-light); }
+
+  .cover-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--ark-blue), #2563eb);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .cover-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+  }
+
+  /* ===== Grid Lines Decoration ===== */
+  .cover-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+
+  /* ===== Navigation ===== */
+  .toc {
+    background: var(--ark-white);
+    padding: 4rem 2rem;
+    border-bottom: 1px solid var(--ark-gray-200);
+  }
+
+  .toc-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .toc h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--ark-dark);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: grid;
+    gap: 0;
+  }
+
+  .toc-list li {
+    border-bottom: 1px solid var(--ark-gray-100);
+  }
+
+  .toc-list a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: var(--ark-text);
+    transition: all 0.2s;
+  }
+
+  .toc-list a:hover { color: var(--ark-blue); padding-left: 0.5rem; }
+
+  .toc-num {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ark-gray-400);
+    width: 3rem;
+    flex-shrink: 0;
+  }
+
+  .toc-title { font-weight: 500; font-size: 1.05rem; }
+
+  /* ===== Chapter Sections ===== */
+  .chapter {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .chapter-hero {
+    background: linear-gradient(135deg, var(--ark-dark) 0%, var(--ark-navy) 100%);
+    padding: 5rem 2rem 4rem;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--ark-gray-50));
+  }
+
+  .chapter-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .chapter-num {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ark-blue-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .chapter-hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--ark-white);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .chapter-hero .lead {
+    font-size: 1.15rem;
+    color: var(--ark-gray-400);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 680px;
+  }
+
+  .chapter-body {
+    background: var(--ark-white);
+    padding: 3rem 0;
+    margin-bottom: 0;
+  }
+
+  .chapter-body-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ===== Typography ===== */
+  .chapter h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--ark-dark);
+    margin: 3rem 0 1.5rem;
+    letter-spacing: -0.01em;
+    padding-top: 1rem;
+  }
+
+  .chapter h2:first-child { margin-top: 0; }
+
+  .chapter h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ark-dark);
+    margin: 2rem 0 1rem;
+  }
+
+  .chapter p {
+    margin-bottom: 1.2rem;
+    color: var(--ark-text-secondary);
+    font-size: 1.02rem;
+  }
+
+  .chapter strong { color: var(--ark-text); font-weight: 600; }
+
+  .chapter blockquote {
+    border-left: 3px solid var(--ark-blue);
+    background: var(--ark-blue-glow);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.02rem;
+    color: var(--ark-text);
+  }
+
+  .chapter blockquote strong { color: var(--ark-blue); }
+
+  .chapter ul, .chapter ol {
+    margin: 1rem 0 1.5rem 1.5rem;
+    color: var(--ark-text-secondary);
+  }
+
+  .chapter li { margin-bottom: 0.5rem; font-size: 1.02rem; }
+
+  .chapter hr {
+    border: none;
+    height: 1px;
+    background: var(--ark-gray-200);
+    margin: 2.5rem 0;
+  }
+
+  /* ===== Tables — ARK Style ===== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--ark-gray-200);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  thead {
+    background: linear-gradient(135deg, var(--ark-dark), var(--ark-navy));
+  }
+
+  thead th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    color: var(--ark-white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--ark-blue);
+  }
+
+  tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--ark-gray-100);
+    color: var(--ark-text-secondary);
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) { background: var(--ark-gray-50); }
+
+  tbody tr:hover { background: var(--ark-blue-glow); }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  td strong { color: var(--ark-text); }
+
+  /* Route badge in tables */
+  .route-a { color: var(--ark-blue); font-weight: 700; }
+  .route-b { color: var(--ark-green); font-weight: 700; }
+  .route-c { color: var(--ark-purple); font-weight: 700; }
+  .route-d { color: var(--ark-accent); font-weight: 700; }
+
+  /* ===== Code Blocks ===== */
+  .code-block {
+    background: var(--ark-dark);
+    color: var(--ark-gray-300);
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--ark-gray-700);
+  }
+
+  /* ===== Callout Boxes ===== */
+  .callout {
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .callout-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .callout-blue {
+    background: var(--ark-blue-glow);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .callout-orange {
+    background: rgba(249, 115, 22, 0.08);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+  }
+
+  .callout-green {
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+
+  /* ===== Route Cards ===== */
+  .route-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .route-card {
+    background: var(--ark-white);
+    border: 1px solid var(--ark-gray-200);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .route-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .route-card-a::before { background: var(--ark-blue); }
+  .route-card-b::before { background: var(--ark-green); }
+  .route-card-c::before { background: var(--ark-purple); }
+  .route-card-d::before { background: var(--ark-accent); }
+
+  .route-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+
+  .route-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ark-dark);
+  }
+
+  .route-card p {
+    font-size: 0.95rem;
+    color: var(--ark-gray-500);
+    margin-bottom: 0;
+  }
+
+  .route-card .route-tag {
+    display: inline-block;
+    padding: 0.2rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .route-card-a .route-tag { background: rgba(59,130,246,0.1); color: var(--ark-blue); }
+  .route-card-b .route-tag { background: rgba(34,197,94,0.1); color: var(--ark-green); }
+  .route-card-c .route-tag { background: rgba(168,85,247,0.1); color: var(--ark-purple); }
+  .route-card-d .route-tag { background: rgba(249,115,22,0.1); color: var(--ark-accent); }
+
+  /* ===== Illustration Containers ===== */
+  .illustration {
+    margin: 2.5rem auto;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .illustration svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ===== Stats Grid ===== */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .stat-card {
+    background: var(--ark-white);
+    border: 1px solid var(--ark-gray-200);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--ark-blue), var(--ark-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 0.88rem;
+    color: var(--ark-gray-500);
+    margin-top: 0.25rem;
+  }
+
+  /* ===== Checklist ===== */
+  .checklist {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--ark-gray-100);
+  }
+
+  .checklist li::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--ark-gray-300);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ===== Week Progress ===== */
+  .week-progress {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .week-item {
+    text-align: center;
+    padding: 1.25rem 0.75rem;
+    border-radius: 12px;
+    background: var(--ark-white);
+    border: 1px solid var(--ark-gray-200);
+  }
+
+  .week-item.active {
+    border-color: var(--ark-blue);
+    background: var(--ark-blue-glow);
+  }
+
+  .week-num {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ark-gray-400);
+    margin-bottom: 0.25rem;
+  }
+
+  .week-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ark-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .week-output {
+    font-size: 0.8rem;
+    color: var(--ark-gray-500);
+  }
+
+  /* ===== Divider ===== */
+  .section-divider {
+    height: 80px;
+    background: linear-gradient(to bottom, var(--ark-white), var(--ark-gray-50));
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    background: var(--ark-dark);
+    color: var(--ark-gray-400);
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  .footer strong { color: var(--ark-white); }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .chapter-hero { padding: 3rem 1.5rem 2.5rem; }
+    .chapter-body-inner { padding: 0 1.5rem; }
+    .route-cards { grid-template-columns: 1fr; }
+    .week-progress { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    table { font-size: 0.82rem; }
+    thead th, tbody td { padding: 0.6rem 0.7rem; }
+  }
+
+  /* ===== Print ===== */
+  @media print {
+    .cover { min-height: auto; padding: 3rem 2rem; break-after: page; }
+    .toc { break-after: page; }
+    .chapter-hero { break-before: page; }
+    body { font-size: 11pt; }
+  }
+
+  /* ===== STRIKE Framework Visual ===== */
+  .strike-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .strike-item {
+    background: var(--ark-white);
+    border: 1px solid var(--ark-gray-200);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .strike-item:hover {
+    border-color: var(--ark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(59,130,246,0.1);
+  }
+
+  .strike-letter {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--ark-blue), var(--ark-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .strike-word {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ark-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .strike-desc {
+    font-size: 0.75rem;
+    color: var(--ark-gray-500);
+  }
+
+  /* ===== Timeline ===== */
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--ark-blue), var(--ark-accent));
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--ark-blue);
+    border: 3px solid var(--ark-white);
+    box-shadow: 0 0 0 2px var(--ark-blue);
+    transform: translateX(-5px);
+  }
+
+  .timeline-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ark-blue);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ark-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+    color: var(--ark-gray-500);
+    margin-bottom: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<section class="cover" id="top">
+  <div class="cover-grid"></div>
+  <div class="cover-content">
+    <div class="cover-badge">Free Guide &middot; 2025&ndash;2026</div>
+    <h1>AI <span>第二專長</span><br>培養指南</h1>
+    <p class="cover-subtitle">
+      30 天內，用 AI 做出一個你能拿去用、拿去講、甚至拿去變現的成果。<br>
+      不需要懂模型原理，不需要會寫程式，只需要照著路線走。
+    </p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>每天 10-20 分鐘</span>
+      </div>
+      <div class="cover-meta-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        <span>4 條路線</span>
+      </div>
+      <div class="cover-meta-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+        <span>12 章 + 附錄</span>
+      </div>
+      <div class="cover-meta-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+        <span>10+ 國工具矩陣</span>
+      </div>
+    </div>
+    <a href="#toc" class="cover-cta">
+      開始閱讀
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </a>
+  </div>
+
+  <!-- Cover Illustration: Abstract AI network -->
+  <svg style="position:absolute;bottom:0;left:0;right:0;opacity:0.08;z-index:0" viewBox="0 0 1200 200" fill="none">
+    <circle cx="100" cy="150" r="4" fill="#3b82f6"/>
+    <circle cx="250" cy="80" r="3" fill="#60a5fa"/>
+    <circle cx="400" cy="120" r="5" fill="#3b82f6"/>
+    <circle cx="550" cy="60" r="3" fill="#f97316"/>
+    <circle cx="700" cy="140" r="4" fill="#60a5fa"/>
+    <circle cx="850" cy="90" r="5" fill="#3b82f6"/>
+    <circle cx="1000" cy="130" r="3" fill="#f97316"/>
+    <circle cx="1100" cy="70" r="4" fill="#60a5fa"/>
+    <line x1="100" y1="150" x2="250" y2="80" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="250" y1="80" x2="400" y2="120" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="400" y1="120" x2="550" y2="60" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="550" y1="60" x2="700" y2="140" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="700" y1="140" x2="850" y2="90" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="850" y1="90" x2="1000" y2="130" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="1000" y1="130" x2="1100" y2="70" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="100" y1="150" x2="400" y2="120" stroke="#60a5fa" stroke-width="0.3"/>
+    <line x1="250" y1="80" x2="550" y2="60" stroke="#60a5fa" stroke-width="0.3"/>
+    <line x1="400" y1="120" x2="700" y2="140" stroke="#60a5fa" stroke-width="0.3"/>
+    <line x1="550" y1="60" x2="850" y2="90" stroke="#60a5fa" stroke-width="0.3"/>
+    <line x1="700" y1="140" x2="1000" y2="130" stroke="#60a5fa" stroke-width="0.3"/>
+    <line x1="850" y1="90" x2="1100" y2="70" stroke="#60a5fa" stroke-width="0.3"/>
+  </svg>
+</section>
+
+<!-- ============================== TOC ============================== -->
+<section class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>目錄</h2>
+    <ul class="toc-list">
+      <li><a href="#ch0"><span class="toc-num">00</span><span class="toc-title">封面與使用導航</span></a></li>
+      <li><a href="#ch1"><span class="toc-num">01</span><span class="toc-title">2026 的現實：你不是要學 AI，你是要「更有選擇權」</span></a></li>
+      <li><a href="#ch2"><span class="toc-num">02</span><span class="toc-title">1 分鐘路線判定：你是哪一種人？</span></a></li>
+      <li><a href="#ch3"><span class="toc-num">03</span><span class="toc-title">路線圖總覽：30 / 90 / 180 天怎麼走</span></a></li>
+      <li><a href="#ch4"><span class="toc-num">04</span><span class="toc-title">四條路線作戰卡：做什麼 / 不做什麼 / 怎麼驗收</span></a></li>
+      <li><a href="#ch5"><span class="toc-num">05</span><span class="toc-title">最小提示詞工程：STRIKE 不是招式，是「規格」</span></a></li>
+      <li><a href="#ch6"><span class="toc-num">06</span><span class="toc-title">任務→工具矩陣：不要追新，追「可交付」</span></a></li>
+      <li><a href="#ch7"><span class="toc-num">07</span><span class="toc-title">30 天專案計畫：每天 10-20 分鐘，做出一個成果</span></a></li>
+      <li><a href="#ch8"><span class="toc-num">08</span><span class="toc-title">成果怎麼變成「可被看見的能力」（案例包裝法）</span></a></li>
+      <li><a href="#ch9"><span class="toc-num">09</span><span class="toc-title">技能變現：三條路線，不用等到很厲害才開始</span></a></li>
+      <li><a href="#ch10"><span class="toc-num">10</span><span class="toc-title">安全邊界：什麼該用 AI、什麼不要碰</span></a></li>
+      <li><a href="#ch11"><span class="toc-num">11</span><span class="toc-title">下一步：你想走快一點嗎？</span></a></li>
+      <li><a href="#appendix-a"><span class="toc-num">A</span><span class="toc-title">一頁速查卡</span></a></li>
+      <li><a href="#appendix-b"><span class="toc-num">B</span><span class="toc-title">模板包</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================== CHAPTER 0 ============================== -->
+<div class="chapter-hero" id="ch0">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 00</div>
+    <h1>封面與使用導航</h1>
+    <p class="lead">這份指南不是雞湯，是「路線 + 工具 + 計畫 + 成果」四合一的施工圖。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>一句話承諾</h2>
+    <p><strong>在 30 天內，用 AI 做出一個你能拿去用、拿去講、甚至拿去變現的成果。</strong></p>
+    <p>不需要懂模型原理，不需要會寫程式，只需要照著路線走、照著打勾做。</p>
+    <p>你可能正處在這樣的階段：每天滑過一堆 AI 工具推薦，收藏了幾十篇教學，卻一個成果都拿不出來。這份指南就是為了解決這件事。</p>
+
+    <hr>
+
+    <h2>三步驟用法</h2>
+    <p>這本指南像一份施工圖，不是散文集。你不用從頭讀到尾——先找到你的起點，再沿著路線往前走。</p>
+
+    <!-- Illustration: 3-step flow -->
+    <div class="illustration">
+      <svg width="680" height="140" viewBox="0 0 680 140" fill="none">
+        <rect x="0" y="30" width="180" height="80" rx="16" fill="#1a1a2e"/>
+        <rect x="250" y="30" width="180" height="80" rx="16" fill="#1a1a2e"/>
+        <rect x="500" y="30" width="180" height="80" rx="16" fill="#1a1a2e"/>
+        <text x="90" y="60" text-anchor="middle" fill="#60a5fa" font-family="Inter,sans-serif" font-size="12" font-weight="600">STEP 1</text>
+        <text x="90" y="85" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="16" font-weight="700">判定路線</text>
+        <text x="340" y="60" text-anchor="middle" fill="#60a5fa" font-family="Inter,sans-serif" font-size="12" font-weight="600">STEP 2</text>
+        <text x="340" y="85" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="16" font-weight="700">照表打勾</text>
+        <text x="590" y="60" text-anchor="middle" fill="#60a5fa" font-family="Inter,sans-serif" font-size="12" font-weight="600">STEP 3</text>
+        <text x="590" y="85" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="16" font-weight="700">選工具做成果</text>
+        <path d="M190 70 L240 70" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+        <path d="M440 70 L490 70" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+        <defs><marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#3b82f6"/></marker></defs>
+      </svg>
+    </div>
+
+    <p><strong>Step 1｜判定路線</strong><br>翻到 Chapter 2，花 1 分鐘做測驗，找到你的路線（A/B/C/D）。</p>
+    <p><strong>Step 2｜照表打勾</strong><br>翻到 Chapter 7，找到你路線對應的 30 天計畫，每天 10–20 分鐘。</p>
+    <p><strong>Step 3｜工具照矩陣選</strong><br>翻到 Chapter 6，按你的任務類型選工具，不追新、不囤課。</p>
+
+    <hr>
+
+    <h2>閱讀地圖</h2>
+    <h3>我要省時間（職場速成）</h3>
+    <p>Ch0 → Ch2 → Ch4 → Ch6 → Ch7 → Ch10 → Ch11<br><em>適合每天被會議紀錄、Email、報告追著跑的上班族。</em></p>
+    <h3>我要轉職 / 變現（要可展示能力）</h3>
+    <p>Ch1 → Ch2 → Ch3 → Ch7 → Ch8 → Ch9 → Ch10 → Ch11<br><em>適合正在準備跳槽或想多一條收入的人。</em></p>
+    <h3>我全部都想看</h3>
+    <p>Ch0 → Ch1 → Ch2 → ... → Ch11 → 附錄<br><em>不趕時間的話，從頭走一遍，地圖會最完整。</em></p>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 1 ============================== -->
+<div class="chapter-hero" id="ch1">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 01</div>
+    <h1>2026 的現實：你不是要學 AI，<br>你是要「更有選擇權」</h1>
+    <p class="lead">AI 第二專長的重點不是追工具，是讓你的職涯多一條路可以走。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>你可能正在經歷這些</h2>
+    <p>晚上十一點，你躺在床上滑手機，又看到一篇「2026 必學 AI 工具」的文章。你收藏了，就像過去收藏的那三十幾篇一樣。</p>
+    <p>隔天上班，主管丟了一句：「這個可以用 AI 做嗎？」你心裡一緊，點頭說「我研究看看」——然後回到座位，不知道從哪開始。</p>
+    <p>是的，你不是一個人。</p>
+
+    <hr>
+
+    <h2>世界變了，但不是你想的那樣</h2>
+    <p>多數人以為「學 AI」是去學一個新技術。不是。AI 在 2026 已經不是新技術——它是職場的底層能力，就像 Excel、Email、搜尋引擎一樣。</p>
+    <p><strong>真正拉開差距的，不是你「會不會用 AI」，而是你能不能用它穩定交付工作成果。</strong></p>
+
+    <hr>
+
+    <h2>2024–2026 的三個關鍵轉變</h2>
+
+    <!-- Illustration: 3 Shifts -->
+    <div class="illustration">
+      <svg width="700" height="200" viewBox="0 0 700 200" fill="none">
+        <rect x="0" y="20" width="200" height="160" rx="16" fill="#1a1a2e" stroke="#3b82f6" stroke-width="1"/>
+        <rect x="250" y="20" width="200" height="160" rx="16" fill="#1a1a2e" stroke="#a855f7" stroke-width="1"/>
+        <rect x="500" y="20" width="200" height="160" rx="16" fill="#1a1a2e" stroke="#f97316" stroke-width="1"/>
+        <text x="100" y="55" text-anchor="middle" fill="#3b82f6" font-family="Inter,sans-serif" font-size="32" font-weight="900">01</text>
+        <text x="100" y="85" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="14" font-weight="700">工具普及</text>
+        <text x="100" y="110" text-anchor="middle" fill="#a1a1aa" font-family="Noto Sans TC,sans-serif" font-size="11">競爭從「會不會」</text>
+        <text x="100" y="128" text-anchor="middle" fill="#a1a1aa" font-family="Noto Sans TC,sans-serif" font-size="11">變成「誰更穩」</text>
+        <text x="350" y="55" text-anchor="middle" fill="#a855f7" font-family="Inter,sans-serif" font-size="32" font-weight="900">02</text>
+        <text x="350" y="85" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="14" font-weight="700">模型更強</text>
+        <text x="350" y="110" text-anchor="middle" fill="#a1a1aa" font-family="Noto Sans TC,sans-serif" font-size="11">更需要「規格」</text>
+        <text x="350" y="128" text-anchor="middle" fill="#a1a1aa" font-family="Noto Sans TC,sans-serif" font-size="11">與「驗收」</text>
+        <text x="600" y="55" text-anchor="middle" fill="#f97316" font-family="Inter,sans-serif" font-size="32" font-weight="900">03</text>
+        <text x="600" y="85" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="14" font-weight="700">AI 內建辦公</text>
+        <text x="600" y="110" text-anchor="middle" fill="#a1a1aa" font-family="Noto Sans TC,sans-serif" font-size="11">不會用的人</text>
+        <text x="600" y="128" text-anchor="middle" fill="#a1a1aa" font-family="Noto Sans TC,sans-serif" font-size="11">落差急速拉大</text>
+      </svg>
+    </div>
+
+    <h3>1. 工具普及 → 競爭從「會不會」變成「工作流誰更穩」</h3>
+    <p>2024 年，會用 ChatGPT 是加分。2026 年，不會用才是扣分。</p>
+    <p>現在的差異化不在「你用什麼工具」，而在「你怎麼把工具串成穩定流程」。</p>
+
+    <h3>2. 模型更強 → 更需要「規格」與「驗收」</h3>
+    <p>模型能力越強，垃圾輸出反而越多——因為大多數人還是用模糊的方式在提問。</p>
+    <p><strong>2026 年真正有價值的能力是：你能下清楚的規格，並且驗收輸出品質。</strong></p>
+
+    <h3>3. AI 進入辦公軟體 → 不會用的人落差急速拉大</h3>
+    <p>Copilot 在 Office、Gemini 在 Workspace、Claude 在各種工作流——AI 已經內建在你的工具裡。</p>
+
+    <hr>
+
+    <h2>所以，「第二專長」到底是什麼？</h2>
+    <p><strong>第二專長 ≠ 會用很多 AI 工具。</strong></p>
+    <p>第二專長 = 你能用 AI 穩定交付某一類成果。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>不是第二專長</th><th>是第二專長</th></tr></thead>
+        <tbody>
+          <tr><td>我會用 ChatGPT</td><td><strong>我能用 AI 在 30 分鐘內產出一份可用的會議摘要</strong></td></tr>
+          <tr><td>我玩過 10 個工具</td><td><strong>我能穩定交付數據分析報告，每週省 3 小時</strong></td></tr>
+          <tr><td>我看了很多教學</td><td><strong>我有 3 個案例可以展示我的 AI 工作流</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote><strong>能交付，才叫能力。能重複交付，才叫專長。</strong></blockquote>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 2 ============================== -->
+<div class="chapter-hero" id="ch2">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 02</div>
+    <h1>1 分鐘路線判定：你是哪一種人？</h1>
+    <p class="lead">先選路線，再選工具。這四個問題幫你在一分鐘內找到起點。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>為什麼要先判定路線？</h2>
+    <p>因為「亂學」是最大的浪費。你可能正處在這樣的階段：AI 工具太多、教學太多、方向太多，每一篇文章都說「這個一定要會」，結果你花了三個月看教學、收藏工具——然後什麼成果都沒有。</p>
+    <p>先選路線，才知道要做什麼、不做什麼。</p>
+
+    <hr>
+
+    <h2>極短測驗（4 題）</h2>
+    <p>每題選一個最接近你的答案，記下字母。不用想太久，直覺最準。</p>
+
+    <h3>Q1｜你現在最想解決的問題是？</h3>
+    <ul>
+      <li><strong>(A)</strong> 工作太多、時間不夠，想提升效率</li>
+      <li><strong>(B)</strong> 想轉職或換跑道，但沒有拿得出手的作品</li>
+      <li><strong>(C)</strong> 工作需要處理數據，但每次都卡很久</li>
+      <li><strong>(D)</strong> 想接案或多一條收入，但不知道能賣什麼</li>
+    </ul>
+
+    <h3>Q2｜你每天能投入多少時間？</h3>
+    <ul>
+      <li><strong>(A)</strong> 10–15 分鐘（擠出來的）</li>
+      <li><strong>(B)</strong> 20–30 分鐘（願意投資）</li>
+      <li><strong>(C)</strong> 20–30 分鐘（有明確目標）</li>
+      <li><strong>(D)</strong> 30 分鐘以上（認真想發展）</li>
+    </ul>
+
+    <h3>Q3｜30 天後你最想要什麼？</h3>
+    <ul>
+      <li><strong>(A)</strong> 每週省出 3 小時</li>
+      <li><strong>(B)</strong> 一個能放進作品集的案例</li>
+      <li><strong>(C)</strong> 一份能講清楚的數據分析報告</li>
+      <li><strong>(D)</strong> 一個能報價的服務項目</li>
+    </ul>
+
+    <h3>Q4｜你對 AI 工具的熟悉程度？</h3>
+    <ul>
+      <li><strong>(A)</strong> 用過 ChatGPT，但沒有固定流程</li>
+      <li><strong>(B)</strong> 知道一些工具，但不確定怎麼組合</li>
+      <li><strong>(C)</strong> 會用試算表，想加入 AI 加速</li>
+      <li><strong>(D)</strong> 有一些技能，想打包成服務</li>
+    </ul>
+
+    <blockquote><strong>選最多的字母，就是你的路線。</strong>（如果平手，選你「最急」的那個。）</blockquote>
+
+    <hr>
+
+    <h2>四條路線一覽</h2>
+
+    <div class="route-cards">
+      <div class="route-card route-card-a">
+        <div class="route-tag">Route A</div>
+        <h4>職場效率派</h4>
+        <p>「先把每週省出 3 小時。」用 AI 加速日常重複工作，建立穩定的省時流程。</p>
+      </div>
+      <div class="route-card route-card-b">
+        <div class="route-tag">Route B</div>
+        <h4>轉職作品派</h4>
+        <p>「先做一個能被看見的作品。」用 AI 輔助產出完整的可展示成果，放進作品集。</p>
+      </div>
+      <div class="route-card route-card-c">
+        <div class="route-tag">Route C</div>
+        <h4>數據實戰派</h4>
+        <p>「先做一份能講清楚的分析報告。」用 AI 處理數據，做出有結論有建議的報告。</p>
+      </div>
+      <div class="route-card route-card-d">
+        <div class="route-tag">Route D</div>
+        <h4>接案變現派</h4>
+        <p>「先把技能包成可賣的服務。」把現有能力 + AI 工作流打包成有明確交付物的服務。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 3 ============================== -->
+<div class="chapter-hero" id="ch3">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 03</div>
+    <h1>路線圖總覽：<br>30 / 90 / 180 天怎麼走</h1>
+    <p class="lead">每一站要交出什麼成果，而不是漫無目的地「學」。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>三階段里程碑</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>階段</th><th>時間</th><th>你要交出什麼</th><th>這代表什麼</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Stage 1</strong></td><td>30 天</td><td>1 個可交付成果</td><td>你能做到</td></tr>
+          <tr><td><strong>Stage 2</strong></td><td>90 天</td><td>3 個可展示案例</td><td>你能穩定做到</td></tr>
+          <tr><td><strong>Stage 3</strong></td><td>180 天</td><td>1 套可複製流程</td><td>你能教別人做到</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Timeline illustration -->
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-label">30 天</div>
+        <div class="timeline-content">
+          <h4>做得到</h4>
+          <p>完成 1 個可交付成果——工作流 / 作品 / 報告 / 服務</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-label">90 天</div>
+        <div class="timeline-content">
+          <h4>穩定做到</h4>
+          <p>累積 3 個可展示案例，形成作品集或服務組合</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-label">180 天</div>
+        <div class="timeline-content">
+          <h4>能教別人做到</h4>
+          <p>整理成 SOP / 流程文件，可複製、可傳承</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>四路線 &times; 三階段</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>路線</th><th>30 天</th><th>90 天</th><th>180 天</th></tr></thead>
+        <tbody>
+          <tr><td><strong class="route-a">A 效率派</strong></td><td>1 個 AI 工作流</td><td>3 個場景，週省 3hr+</td><td>團隊 SOP</td></tr>
+          <tr><td><strong class="route-b">B 作品派</strong></td><td>1 個完整作品</td><td>作品集 + 更新履歷</td><td>品牌內容流程</td></tr>
+          <tr><td><strong class="route-c">C 數據派</strong></td><td>1 份分析報告</td><td>3 份不同領域報告</td><td>分析 SOP</td></tr>
+          <tr><td><strong class="route-d">D 接案派</strong></td><td>1 個最小服務+首次交付</td><td>3 個案例 + 報價流程</td><td>服務標準化/產品化</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h2>「可驗收」的定義</h2>
+    <p>每個成果都要通過這三個檢查：</p>
+    <ol>
+      <li><strong>可交付</strong>：你能把它交給別人看 / 用嗎？</li>
+      <li><strong>可解釋</strong>：你能用 3 句話說清楚你做了什麼？</li>
+      <li><strong>可重複</strong>：你明天再做一次，能做出類似品質嗎？</li>
+    </ol>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 4 ============================== -->
+<div class="chapter-hero" id="ch4">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 04</div>
+    <h1>四條路線作戰卡：<br>做什麼 / 不做什麼 / 怎麼驗收</h1>
+    <p class="lead">找到你的路線，撕下來貼牆上——接下來的 30 天，這就是你的地圖。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>路線 A｜職場效率派</h2>
+    <p><strong>最小成果：</strong>建立 1 個 AI 輔助的日常工作流，每週穩定省出 3 小時。</p>
+    <h3>你只做 3 件事</h3>
+    <ol>
+      <li>盤點你每週最花時間的 3 個重複任務</li>
+      <li>挑其中 1 個，用 AI 建立「輸入→處理→輸出」流程</li>
+      <li>連續用 2 週，修到穩定可用</li>
+    </ol>
+    <h3>你不要做 3 件事</h3>
+    <ol>
+      <li>不要一次改所有工作流程——先攻一個就好</li>
+      <li>不要花時間比較工具——先用手邊有的</li>
+      <li>不要追求完美輸出——能用、能省時間就算成功</li>
+    </ol>
+
+    <hr>
+
+    <h2>路線 B｜轉職作品派</h2>
+    <p><strong>最小成果：</strong>完成 1 個可放進作品集的完整作品。</p>
+    <h3>你只做 3 件事</h3>
+    <ol>
+      <li>選一個你有興趣的主題，用 AI 輔助做研究</li>
+      <li>產出一個完整作品（文章 / 分析報告 / 簡報 / 企劃）</li>
+      <li>把作品整理成可展示格式（PDF / 連結 / 履歷 bullet）</li>
+    </ol>
+
+    <hr>
+
+    <h2>路線 C｜數據實戰派</h2>
+    <p><strong>最小成果：</strong>完成 1 份有結論、有建議的數據分析報告。</p>
+    <h3>你只做 3 件事</h3>
+    <ol>
+      <li>找一個公開資料集（或你工作中的數據）</li>
+      <li>用 AI 輔助清洗、分析、視覺化</li>
+      <li>寫成一份「有結論、有建議」的報告</li>
+    </ol>
+
+    <hr>
+
+    <h2>路線 D｜接案變現派</h2>
+    <p><strong>最小成果：</strong>定義 1 個最小可行服務，完成首次交付。</p>
+    <h3>你只做 3 件事</h3>
+    <ol>
+      <li>盤點你現有能力，找到「別人會需要、你能用 AI 加速」的交集</li>
+      <li>定義清楚：做什麼、交什麼、多久交、多少錢</li>
+      <li>找到第一個客戶，完成交付</li>
+    </ol>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 5 ============================== -->
+<div class="chapter-hero" id="ch5">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 05</div>
+    <h1>最小提示詞工程：<br>STRIKE 不是招式，是「規格」</h1>
+    <p class="lead">花 30 秒想清楚規格，省下 30 分鐘改輸出。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>STRIKE 六格</h2>
+
+    <div class="strike-grid">
+      <div class="strike-item">
+        <div class="strike-letter">S</div>
+        <div class="strike-word">Situation</div>
+        <div class="strike-desc">現在什麼狀況？</div>
+      </div>
+      <div class="strike-item">
+        <div class="strike-letter">T</div>
+        <div class="strike-word">Task</div>
+        <div class="strike-desc">要 AI 做什麼？</div>
+      </div>
+      <div class="strike-item">
+        <div class="strike-letter">R</div>
+        <div class="strike-word">Role</div>
+        <div class="strike-desc">AI 扮演誰？</div>
+      </div>
+      <div class="strike-item">
+        <div class="strike-letter">I</div>
+        <div class="strike-word">Input</div>
+        <div class="strike-desc">你提供什麼素材？</div>
+      </div>
+      <div class="strike-item">
+        <div class="strike-letter">K</div>
+        <div class="strike-word">KPI</div>
+        <div class="strike-desc">做到什麼程度算好？</div>
+      </div>
+      <div class="strike-item">
+        <div class="strike-letter">E</div>
+        <div class="strike-word">Example</div>
+        <div class="strike-desc">期望的輸出長怎樣？</div>
+      </div>
+    </div>
+
+    <p>不是每次都要填滿六格。但填越多，輸出越穩。先把 S 和 T 講清楚，就已經贏過大多數人了。</p>
+
+    <hr>
+
+    <h2>三層用法</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Level</th><th>填什麼</th><th>效果</th><th>適用場景</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Level 1 試探型</strong></td><td>S + T</td><td>快速得到初步結果</td><td>不確定要什麼的時候</td></tr>
+          <tr><td><strong>Level 2 精準型</strong></td><td>S + T + R + K</td><td>輸出直接可用</td><td>日常工作任務</td></tr>
+          <tr><td><strong>Level 3 鏈式型</strong></td><td>六格全填 + 多步驟</td><td>結果可預測可重複</td><td>複雜任務穩定交付</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h2>對照案例：寫 Email</h2>
+    <h3>模糊問法</h3>
+    <blockquote>幫我寫一封 Email 給客戶。</blockquote>
+    <p>AI 輸出：一封不知道要幹嘛的通用 Email。</p>
+
+    <h3>STRIKE 版</h3>
+    <blockquote>
+      <strong>S：</strong>客戶上週提了三個修改需求，我們已完成兩個，第三個需要延期。<br>
+      <strong>T：</strong>寫一封進度回報 Email。<br>
+      <strong>R：</strong>專業但友善的專案經理語氣。<br>
+      <strong>K：</strong>200 字以內，條列式，結尾附下次交付日期。<br>
+      <strong>E：</strong>「Hi [Name], 以下是本週進度更新：...」
+    </blockquote>
+    <p>AI 輸出：<strong>一封可以直接寄出的 Email。</strong></p>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 6 ============================== -->
+<div class="chapter-hero" id="ch6">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 06</div>
+    <h1>任務→工具矩陣：<br>不要追新，追「可交付」</h1>
+    <p class="lead">根據你的路線（A/B/C/D），找到最值得投入的工具——然後用到熟。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>選工具的四個維度</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:1.5rem">社群</div>
+        <div class="stat-label">卡住時能多快找到答案</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:1.5rem">E2E</div>
+        <div class="stat-label">能否從頭到尾不換工具</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:1.5rem">成本</div>
+        <div class="stat-label">免費能用嗎？付費會暴增嗎？</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:1.5rem">獨特</div>
+        <div class="stat-label">別人做不到的差異化能力</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>精華版矩陣（2025-2026 全球版）</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>任務類別</th><th>首選工具</th><th>國家</th><th>替代方案</th><th>選型理由</th></tr></thead>
+        <tbody>
+          <tr><td><strong>AI 助手</strong></td><td>ChatGPT / Claude</td><td>🇺🇸</td><td>DeepSeek 🇨🇳 / Mistral 🇫🇷</td><td>生態系最全；DeepSeek 免費</td></tr>
+          <tr><td><strong>E2E 工作站</strong></td><td>Skywork / NotebookLM</td><td>🇨🇳 / 🇺🇸</td><td>Notion AI 🇺🇸</td><td>多格式一站出；免費+播客</td></tr>
+          <tr><td><strong>深度研究</strong></td><td>NotebookLM / Perplexity</td><td>🇺🇸</td><td>ChatGPT Deep Research</td><td>免費上傳 50 份文件</td></tr>
+          <tr><td><strong>數據分析</strong></td><td>Code Interpreter / Artifacts</td><td>🇺🇸</td><td>Julius AI 🇺🇸</td><td>上傳 CSV 即分析出圖</td></tr>
+          <tr><td><strong>簡報產出</strong></td><td>Gamma / Skywork</td><td>🇺🇸 / 🇨🇳</td><td>Plus AI / Canva 🇦🇺</td><td>Gamma 最快</td></tr>
+          <tr><td><strong>文字→視覺化</strong></td><td>Napkin AI</td><td>🇺🇸</td><td>Lovart 🇨🇳 / Miro 🇳🇱</td><td>貼文字自動出圖，免費</td></tr>
+          <tr><td><strong>圖像生成</strong></td><td>Midjourney / GPT Image</td><td>🇺🇸</td><td>Ideogram 🇨🇦 / Krea 🇺🇸</td><td>藝術最強；文字渲染 90%</td></tr>
+          <tr><td><strong>影片生成</strong></td><td>Runway / Kling</td><td>🇺🇸 / 🇨🇳</td><td>Sora / Higgsfield 🇺🇸</td><td>創意最全；性價比最高</td></tr>
+          <tr><td><strong>視覺設計</strong></td><td>Canva AI</td><td>🇦🇺</td><td>Figma AI 🇺🇸</td><td>非設計師首選</td></tr>
+          <tr><td><strong>自動化</strong></td><td>n8n / Make</td><td>🇩🇪 / 🇨🇿</td><td>&mdash;</td><td>AI 原生最強；入門友善</td></tr>
+          <tr><td><strong>App 建構</strong></td><td>Lovable / Bolt.new</td><td>🇸🇪 / 🇺🇸</td><td>v0 🇺🇸</td><td>全端最快；瀏覽器零設定</td></tr>
+          <tr><td><strong>程式輔助</strong></td><td>Cursor / Copilot</td><td>🇺🇸</td><td>Claude Code 🇺🇸</td><td>4.9/5 分；最便宜</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h2>你的路線工具包</h2>
+    <p>從第一個開始用就好。</p>
+
+    <div class="route-cards">
+      <div class="route-card route-card-a">
+        <div class="route-tag">Route A 效率派</div>
+        <h4>先把每週省出 3 小時</h4>
+        <p>1. ChatGPT / Gemini → 2. Make / n8n → 3. Napkin AI</p>
+      </div>
+      <div class="route-card route-card-b">
+        <div class="route-tag">Route B 作品派</div>
+        <h4>先做一個能被看見的作品</h4>
+        <p>1. Claude / ChatGPT → 2. NotebookLM → 3. Gamma → 4. Canva</p>
+      </div>
+      <div class="route-card route-card-c">
+        <div class="route-tag">Route C 數據派</div>
+        <h4>先做一份能講清楚的報告</h4>
+        <p>1. Code Interpreter → 2. NotebookLM → 3. Napkin AI</p>
+      </div>
+      <div class="route-card route-card-d">
+        <div class="route-tag">Route D 接案派</div>
+        <h4>先把技能包成可賣的服務</h4>
+        <p>1. ChatGPT / Claude → 2. Skywork / Gamma → 3. n8n</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>費用速算</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>預算等級</th><th>建議組合</th><th>月費</th><th>最適合路線</th></tr></thead>
+        <tbody>
+          <tr><td><strong>$0 免費版</strong></td><td>DeepSeek + NotebookLM + Napkin AI + Canva</td><td>$0</td><td><span class="route-a">A</span> / <span class="route-b">B</span> / <span class="route-c">C</span></td></tr>
+          <tr><td><strong>基礎版</strong></td><td>ChatGPT Plus + Gamma + Napkin AI</td><td>~$20</td><td><span class="route-b">B</span> / <span class="route-c">C</span></td></tr>
+          <tr><td><strong>效率版</strong></td><td>ChatGPT Plus + n8n Cloud + Napkin AI</td><td>~$40</td><td><span class="route-a">A</span> / <span class="route-d">D</span></td></tr>
+          <tr><td><strong>進階版</strong></td><td>ChatGPT Plus + n8n + Gamma Plus + Kling</td><td>~$55</td><td><span class="route-d">D</span></td></tr>
+          <tr><td><strong>E2E 精簡版</strong></td><td>Skywork Pro + Napkin AI + n8n 自架 + DeepSeek</td><td>~$20</td><td><span class="route-d">D</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h2>全球工具地圖</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>國家</th><th>代表工具</th><th>共同特色</th></tr></thead>
+        <tbody>
+          <tr><td>🇺🇸 美國</td><td>ChatGPT、Claude、Midjourney、Runway、Cursor</td><td>生態系最完整</td></tr>
+          <tr><td>🇨🇳 中國</td><td>DeepSeek、Skywork、Kling、Lovart</td><td>開源/低價，性價比極高</td></tr>
+          <tr><td>🇫🇷 法國</td><td>Mistral Le Chat</td><td>歐洲隱私合規首選</td></tr>
+          <tr><td>🇩🇪 德國</td><td>n8n</td><td>開源自動化霸主</td></tr>
+          <tr><td>🇸🇪 瑞典</td><td>Lovable</td><td>App 建構速度冠軍</td></tr>
+          <tr><td>🇦🇺 澳洲</td><td>Canva</td><td>非設計師的全球標準</td></tr>
+          <tr><td>🇬🇧 英國</td><td>Stable Diffusion</td><td>完全開源免費</td></tr>
+          <tr><td>🇨🇦 加拿大</td><td>Ideogram</td><td>文字渲染業界第一</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 7 ============================== -->
+<div class="chapter-hero" id="ch7">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 07</div>
+    <h1>30 天專案計畫：<br>每天 10-20 分鐘，做出一個成果</h1>
+    <p class="lead">不用想，照著打勾就好。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <div class="week-progress">
+      <div class="week-item active">
+        <div class="week-num">WEEK 1</div>
+        <div class="week-label">建立手感</div>
+        <div class="week-output">1 個 STRIKE 模板</div>
+      </div>
+      <div class="week-item">
+        <div class="week-num">WEEK 2</div>
+        <div class="week-label">做出成果</div>
+        <div class="week-output">1 個初版成果</div>
+      </div>
+      <div class="week-item">
+        <div class="week-num">WEEK 3</div>
+        <div class="week-label">建立 SOP</div>
+        <div class="week-output">1 份可重複流程</div>
+      </div>
+      <div class="week-item">
+        <div class="week-num">WEEK 4</div>
+        <div class="week-label">包裝發布</div>
+        <div class="week-output">1 個已發布案例</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Week 1｜建立手感</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1</strong></td><td>選定 30 天目標成果：「我要做出 ___」</td><td>10 min</td></tr>
+          <tr><td><strong>2</strong></td><td>用模糊方式問 AI，記錄輸出品質</td><td>10 min</td></tr>
+          <tr><td><strong>3</strong></td><td>用 STRIKE 重問同一個問題，比較差異</td><td>15 min</td></tr>
+          <tr><td><strong>4</strong></td><td>把最常做的重複任務寫成 STRIKE 指令</td><td>15 min</td></tr>
+          <tr><td><strong>5</strong></td><td>實際用 STRIKE 指令完成任務</td><td>15 min</td></tr>
+          <tr><td><strong>6</strong></td><td>覆盤：哪裡卡住？指令要怎麼調？</td><td>10 min</td></tr>
+          <tr><td><strong>7</strong></td><td>把修正後的指令存成模板</td><td>10 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Week 2｜做出第一個成果</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
+        <tbody>
+          <tr><td><strong>8</strong></td><td>定義成果規格（做什麼 / 給誰看 / 格式）</td><td>15 min</td></tr>
+          <tr><td><strong>9</strong></td><td>用 AI 產出框架 / 大綱</td><td>15 min</td></tr>
+          <tr><td><strong>10</strong></td><td>填入實際內容（AI + 專業判斷）</td><td>20 min</td></tr>
+          <tr><td><strong>11</strong></td><td>繼續填寫 + AI 協助修改</td><td>20 min</td></tr>
+          <tr><td><strong>12</strong></td><td>完成初版（容許粗糙）</td><td>20 min</td></tr>
+          <tr><td><strong>13</strong></td><td>自我審查：驗收標準逐條檢查</td><td>15 min</td></tr>
+          <tr><td><strong>14</strong></td><td>修正到「可以給人看」</td><td>15 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Week 3｜把成果變 SOP</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
+        <tbody>
+          <tr><td><strong>15</strong></td><td>回顧做成果的過程，列出每一步</td><td>15 min</td></tr>
+          <tr><td><strong>16</strong></td><td>標記 AI 幫最多的步驟 vs 手動步驟</td><td>10 min</td></tr>
+          <tr><td><strong>17</strong></td><td>整理成 SOP（3-7 步驟）</td><td>15 min</td></tr>
+          <tr><td><strong>18</strong></td><td>用 SOP 重新做一次</td><td>20 min</td></tr>
+          <tr><td><strong>19</strong></td><td>根據經驗修正 SOP</td><td>15 min</td></tr>
+          <tr><td><strong>20</strong></td><td>STRIKE 模板 + SOP 整理成文件</td><td>15 min</td></tr>
+          <tr><td><strong>21</strong></td><td>測試：不懂的人聽得懂嗎？</td><td>10 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Week 4｜把 SOP 變案例</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
+        <tbody>
+          <tr><td><strong>22</strong></td><td>用案例四段式寫成果故事</td><td>20 min</td></tr>
+          <tr><td><strong>23</strong></td><td>AI 精修文字、調整語氣</td><td>15 min</td></tr>
+          <tr><td><strong>24</strong></td><td>製作可分享格式（PDF / LinkedIn / 作品頁）</td><td>20 min</td></tr>
+          <tr><td><strong>25</strong></td><td>發布或分享給至少 1 個人</td><td>10 min</td></tr>
+          <tr><td><strong>26</strong></td><td>收集回饋，記錄改進點</td><td>10 min</td></tr>
+          <tr><td><strong>27</strong></td><td>覆盤 30 天：學到什麼？下一步？</td><td>15 min</td></tr>
+          <tr><td><strong>28-30</strong></td><td>開始第二個成果（進入 90 天循環）</td><td>自由</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 8 ============================== -->
+<div class="chapter-hero" id="ch8">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 08</div>
+    <h1>成果怎麼變成<br>「可被看見的能力」</h1>
+    <p class="lead">做出成果是第一步。讓別人看懂你做了什麼，才是第二專長。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>案例四段式模板</h2>
+
+    <!-- Illustration: 4-part case study -->
+    <div class="illustration">
+      <svg width="680" height="120" viewBox="0 0 680 120" fill="none">
+        <rect x="0" y="20" width="150" height="80" rx="12" fill="#1a1a2e" stroke="#3b82f6" stroke-width="1.5"/>
+        <rect x="175" y="20" width="150" height="80" rx="12" fill="#1a1a2e" stroke="#22c55e" stroke-width="1.5"/>
+        <rect x="350" y="20" width="150" height="80" rx="12" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.5"/>
+        <rect x="525" y="20" width="150" height="80" rx="12" fill="#1a1a2e" stroke="#f97316" stroke-width="1.5"/>
+        <text x="75" y="50" text-anchor="middle" fill="#3b82f6" font-family="Inter,sans-serif" font-size="11" font-weight="600">01</text>
+        <text x="75" y="75" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="16" font-weight="700">背景</text>
+        <text x="250" y="50" text-anchor="middle" fill="#22c55e" font-family="Inter,sans-serif" font-size="11" font-weight="600">02</text>
+        <text x="250" y="75" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="16" font-weight="700">方法</text>
+        <text x="425" y="50" text-anchor="middle" fill="#a855f7" font-family="Inter,sans-serif" font-size="11" font-weight="600">03</text>
+        <text x="425" y="75" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="16" font-weight="700">輸出</text>
+        <text x="600" y="50" text-anchor="middle" fill="#f97316" font-family="Inter,sans-serif" font-size="11" font-weight="600">04</text>
+        <text x="600" y="75" text-anchor="middle" fill="white" font-family="Noto Sans TC,sans-serif" font-size="16" font-weight="700">影響</text>
+      </svg>
+    </div>
+
+    <ol>
+      <li><strong>背景（Context）</strong>：我遇到什麼狀況？為什麼要做這件事？</li>
+      <li><strong>方法（Method）</strong>：我怎麼做的？用了什麼工具、什麼流程？</li>
+      <li><strong>輸出（Output）</strong>：我交付了什麼？具體的成果物是什麼？</li>
+      <li><strong>影響（Impact）</strong>：省了多少時間？提升了什麼？改變了什麼？</li>
+    </ol>
+
+    <hr>
+
+    <h2>完整範例</h2>
+    <blockquote>
+      <strong>AI 會議摘要自動化流程</strong><br><br>
+      <strong>背景：</strong>每週 3 場跨部門會議，紀錄整理耗時且常漏項目。<br><br>
+      <strong>方法：</strong>錄音轉逐字稿後，用 STRIKE 框架指定 AI 角色（會議秘書）、輸出格式（決議/待辦/議程三段式）、品質標準（每點 30 字內），建立可重複的摘要流程。<br><br>
+      <strong>輸出：</strong>標準化會議摘要模板 + 3 步驟 SOP，團隊成員可直接使用。<br><br>
+      <strong>影響：</strong>紀錄時間減少 87%（4hr→30min/週），被主管採用為部門標準流程。
+    </blockquote>
+
+    <hr>
+
+    <h2>放哪裡？</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>場景</th><th>格式建議</th></tr></thead>
+        <tbody>
+          <tr><td>履歷</td><td>1-2 行 bullet，「動詞 + 成果 + 影響」</td></tr>
+          <tr><td>LinkedIn</td><td>300-500 字貼文，案例四段式</td></tr>
+          <tr><td>作品集</td><td>一頁 PDF 或網頁，附截圖</td></tr>
+          <tr><td>面試</td><td>用 STAR 框架口述</td></tr>
+          <tr><td>提案</td><td>放在「過去案例」區塊</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 9 ============================== -->
+<div class="chapter-hero" id="ch9">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 09</div>
+    <h1>技能變現：三條路線，<br>不用等到很厲害才開始</h1>
+    <p class="lead">變現不一定是接案賺錢，升遷加薪和轉職成功也算。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>變現的前提</h2>
+    <p>你不需要是專家，你只需要：</p>
+    <ol>
+      <li><strong>能穩定交付一個成果</strong></li>
+      <li><strong>能說清楚你做什麼</strong></li>
+      <li><strong>有至少一個案例證明</strong></li>
+    </ol>
+
+    <hr>
+
+    <h2>三個最小可行服務包</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>服務包</th><th>做什麼</th><th>交什麼</th><th>時間</th><th>參考價</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A｜會議紀錄 SOP</strong></td><td>建立 AI 會議紀錄流程</td><td>SOP + 3 個模板 + 教學</td><td>1 週</td><td>NT$ 3,000-8,000</td></tr>
+          <tr><td><strong>B｜數據分析報告</strong></td><td>針對客戶數據產出報告</td><td>含結論與建議的 PDF</td><td>3-5 天</td><td>NT$ 5,000-15,000</td></tr>
+          <tr><td><strong>C｜簡報重製</strong></td><td>重新整理結構 + 設計</td><td>完成版簡報（含講稿）</td><td>2-3 天</td><td>NT$ 3,000-10,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h2>定價心法</h2>
+    <ol>
+      <li><strong>先免費做 1 個</strong>：累積案例和信心，這是投資不是虧損</li>
+      <li><strong>用「省多少」來定價</strong>：幫客戶每月省 10 小時，收 5,000 很合理</li>
+      <li><strong>包小不包大</strong>：明確的交付物比「什麼都能做」更好賣</li>
+    </ol>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 10 ============================== -->
+<div class="chapter-hero" id="ch10">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 10</div>
+    <h1>安全邊界：<br>什麼該用 AI、什麼不要碰</h1>
+    <p class="lead">AI 用得好是效率利器，用錯地方可能讓你付出更大的代價。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>資料分級表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>等級</th><th>說明</th><th>可以輸入 AI 嗎？</th></tr></thead>
+        <tbody>
+          <tr><td><strong style="color:#22c55e">公開資料</strong></td><td>網路上找得到的、公司已公開的</td><td>可以，放心用</td></tr>
+          <tr><td><strong style="color:#f97316">內部資料</strong></td><td>公司內部文件，不涉及個資或機密</td><td>需脫敏後使用</td></tr>
+          <tr><td><strong style="color:#ef4444">機密資料</strong></td><td>個資、薪資、合約、客戶資料</td><td>禁止輸入</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h2>防呆三句話</h2>
+    <div class="callout callout-blue">
+      <svg class="callout-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#3b82f6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+      <div>
+        <strong>1. 不確定就標註不確定</strong><br>
+        <strong>2. 需要事實就要求來源或自行查證</strong><br>
+        <strong>3. 重要決策要人工覆核</strong>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>AI 使用紅線表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="color:#22c55e">可以用 AI</th><th style="color:#ef4444">不要用 AI</th></tr></thead>
+        <tbody>
+          <tr><td>整理會議紀錄</td><td>直接引用未查證的數據</td></tr>
+          <tr><td>寫 Email 草稿</td><td>處理個人資料</td></tr>
+          <tr><td>分析公開數據</td><td>做法律/醫療/財務最終決策</td></tr>
+          <tr><td>產出簡報大綱</td><td>取代專業審查流程</td></tr>
+          <tr><td>腦力激盪</td><td>輸入公司機密文件</td></tr>
+          <tr><td>翻譯 / 校稿</td><td>未經脫敏的客戶資料</td></tr>
+          <tr><td>學習新概念</td><td>不經覆核直接對外發布</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================== CHAPTER 11 ============================== -->
+<div class="chapter-hero" id="ch11">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Chapter 11</div>
+    <h1>下一步：<br>你想走快一點嗎？</h1>
+    <p class="lead">你已經有了路線、計畫、工具和成果。接下來決定：自己走，還是找人一起走。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>你已經走到這裡了</h2>
+    <p>如果你照著這份指南做，你現在手上有：</p>
+    <ul>
+      <li>一條明確的路線（A/B/C/D）</li>
+      <li>一個 30 天計畫（可打勾）</li>
+      <li>STRIKE 框架（讓 AI 穩定輸出）</li>
+      <li>任務→工具矩陣（不追新、追可交付）</li>
+      <li>至少一個成果 + 案例包裝</li>
+    </ul>
+    <p>這已經比 90% 還在觀望的人走得遠了。</p>
+
+    <hr>
+
+    <h2>三個下一步選項</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>等級</th><th>內容</th><th>適合誰</th></tr></thead>
+        <tbody>
+          <tr><td><strong>輕量級</strong></td><td>加入社群 / 訂閱週報</td><td>想持續吸收、保持動力</td></tr>
+          <tr><td><strong>中量級</strong></td><td>7 天工作流挑戰</td><td>想有結構地實作、快速驗收</td></tr>
+          <tr><td><strong>重量級</strong></td><td>實戰營 / 1v1 諮詢</td><td>90 天做出可變現成果</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h2>三句口訣</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:1.1rem">先選路線<br>再選工具</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:1.1rem">先做成果<br>再談理解</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:1.1rem">先定驗收<br>才有穩定</div>
+      </div>
+    </div>
+
+    <p><strong>你已經有路線圖了。接下來的事情只有一件：繼續做。</strong></p>
+
+  </div>
+</div>
+
+<!-- ============================== APPENDIX A ============================== -->
+<div class="chapter-hero" id="appendix-a">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Appendix A</div>
+    <h1>一頁速查卡</h1>
+    <p class="lead">這張卡濃縮了整本指南的核心。截圖存起來，隨時可以翻。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>路線判定</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>我最想...</th><th>路線</th></tr></thead>
+        <tbody>
+          <tr><td>省時間提升效率</td><td><strong class="route-a">A 職場效率派</strong></td></tr>
+          <tr><td>做作品去轉職</td><td><strong class="route-b">B 轉職作品派</strong></td></tr>
+          <tr><td>做數據分析</td><td><strong class="route-c">C 數據實戰派</strong></td></tr>
+          <tr><td>接案多一條收入</td><td><strong class="route-d">D 接案變現派</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>不確定？選你「最急」的那個。</p>
+
+    <hr>
+
+    <h2>30 天節奏</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>週</th><th>主題</th><th>產出</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Week 1</strong></td><td>建立手感</td><td>1 個 STRIKE 模板</td></tr>
+          <tr><td><strong>Week 2</strong></td><td>做出成果</td><td>1 個初版成果</td></tr>
+          <tr><td><strong>Week 3</strong></td><td>建立 SOP</td><td>1 份可重複流程</td></tr>
+          <tr><td><strong>Week 4</strong></td><td>包裝發布</td><td>1 個已發布案例</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>每週一個里程碑，每天 10–20 分鐘。</p>
+
+    <hr>
+
+    <h2>STRIKE 速查</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>字母</th><th>代表</th><th>你要回答的問題</th></tr></thead>
+        <tbody>
+          <tr><td><strong class="route-a">S</strong></td><td>情境</td><td>現在什麼狀況？</td></tr>
+          <tr><td><strong class="route-a">T</strong></td><td>任務</td><td>要 AI 做什麼？</td></tr>
+          <tr><td><strong class="route-a">R</strong></td><td>角色</td><td>AI 扮演誰？</td></tr>
+          <tr><td><strong class="route-a">I</strong></td><td>輸入</td><td>你提供什麼素材？</td></tr>
+          <tr><td><strong class="route-a">K</strong></td><td>標準</td><td>做到什麼程度算好？</td></tr>
+          <tr><td><strong class="route-a">E</strong></td><td>範例</td><td>期望的輸出長怎樣？</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>三層用法：</strong></p>
+    <ul>
+      <li>Level 1（試探）：S + T → 快速得到初步結果</li>
+      <li>Level 2（精準）：S + T + R + K → 輸出直接可用</li>
+      <li>Level 3（鏈式）：六格全填 + 多步驟 → 複雜任務穩定交付</li>
+    </ul>
+
+    <hr>
+
+    <h2>任務→工具速查（2025-2026 全球版）</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>任務</th><th>首選工具</th><th>國家</th><th>替代方案</th></tr></thead>
+        <tbody>
+          <tr><td>AI 助手</td><td>ChatGPT / Claude</td><td>🇺🇸</td><td>DeepSeek 🇨🇳 / Mistral 🇫🇷</td></tr>
+          <tr><td>E2E 工作站</td><td>Skywork / NotebookLM</td><td>🇨🇳 / 🇺🇸</td><td>Notion AI 🇺🇸</td></tr>
+          <tr><td>深度研究</td><td>NotebookLM / Perplexity</td><td>🇺🇸</td><td>ChatGPT Deep Research</td></tr>
+          <tr><td>數據分析</td><td>Code Interpreter / Artifacts</td><td>🇺🇸</td><td>Julius AI / Sheets+Gemini</td></tr>
+          <tr><td>簡報產出</td><td>Gamma / Skywork</td><td>🇺🇸 / 🇨🇳</td><td>Plus AI / Canva 🇦🇺</td></tr>
+          <tr><td>文字→視覺化</td><td>Napkin AI</td><td>🇺🇸</td><td>Lovart 🇨🇳 / Miro 🇳🇱</td></tr>
+          <tr><td>圖像生成</td><td>Midjourney / GPT Image</td><td>🇺🇸</td><td>Ideogram 🇨🇦 / Krea 🇺🇸</td></tr>
+          <tr><td>影片生成</td><td>Runway / Kling</td><td>🇺🇸 / 🇨🇳</td><td>Sora 🇺🇸 / Higgsfield 🇺🇸</td></tr>
+          <tr><td>視覺設計</td><td>Canva AI</td><td>🇦🇺</td><td>Figma AI 🇺🇸</td></tr>
+          <tr><td>自動化</td><td>n8n / Make</td><td>🇩🇪 / 🇨🇿</td><td>&mdash;</td></tr>
+          <tr><td>App 建構</td><td>Lovable / Bolt</td><td>🇸🇪 / 🇺🇸</td><td>v0 🇺🇸</td></tr>
+          <tr><td>程式輔助</td><td>Cursor / Copilot</td><td>🇺🇸</td><td>Claude Code 🇺🇸</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>選工具看四件事：社群活不活絡、能不能 E2E 跑通、成本效益、獨特優勢。</p>
+
+    <hr>
+
+    <h2>路線工具包速查</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>路線</th><th>必備</th><th>核心</th><th>加分</th></tr></thead>
+        <tbody>
+          <tr><td><strong class="route-a">A 效率派</strong></td><td>ChatGPT / Gemini</td><td>Make / n8n</td><td>Napkin AI</td></tr>
+          <tr><td><strong class="route-b">B 作品派</strong></td><td>Claude / ChatGPT</td><td>NotebookLM + Gamma</td><td>Canva</td></tr>
+          <tr><td><strong class="route-c">C 數據派</strong></td><td>Code Interpreter</td><td>NotebookLM</td><td>Napkin AI</td></tr>
+          <tr><td><strong class="route-d">D 接案派</strong></td><td>ChatGPT / Claude</td><td>Skywork / Gamma</td><td>n8n</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>先選路線，再選工具。從「必備」開始，用到熟再加下一個。</p>
+
+    <hr>
+
+    <h2>安全紅線</h2>
+    <ul>
+      <li>公開資料 → 可以用</li>
+      <li>內部資料 → 脫敏後用</li>
+      <li>機密資料 → 禁止輸入</li>
+    </ul>
+    <p><strong>三句防呆：</strong></p>
+    <ol>
+      <li>不確定就標註不確定</li>
+      <li>需要事實就查證</li>
+      <li>重要決策要人工覆核</li>
+    </ol>
+
+    <hr>
+
+    <h2>案例四段式</h2>
+    <ol>
+      <li><strong>背景</strong>：遇到什麼狀況？</li>
+      <li><strong>方法</strong>：怎麼做的？</li>
+      <li><strong>輸出</strong>：交付了什麼？</li>
+      <li><strong>影響</strong>：結果多好？</li>
+    </ol>
+
+    <hr>
+
+    <h2>三句口訣</h2>
+    <ol>
+      <li><strong>先選路線，再選工具。</strong></li>
+      <li><strong>先做成果，再談理解。</strong></li>
+      <li><strong>先定驗收，才有穩定。</strong></li>
+    </ol>
+
+  </div>
+</div>
+
+<!-- ============================== APPENDIX B ============================== -->
+<div class="chapter-hero" id="appendix-b">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">Appendix B</div>
+    <h1>模板包</h1>
+    <p class="lead">以下四個模板可以直接複製使用。根據你的實際需求調整 S（情境）和 I（輸入）即可。不用全部記住，用到哪個就翻哪個。</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <h2>模板 1｜會議紀錄（STRIKE 版）</h2>
+    <p>適合每週都在跟會議紀錄搏鬥的你。</p>
+    <div class="code-block"><strong style="color:#60a5fa">S（情境）：</strong>
+這是一場 [部門/主題] 的會議，與會者有 [人數] 人，
+會議時長約 [X] 分鐘。
+
+<strong style="color:#60a5fa">T（任務）：</strong>
+請根據以下逐字稿，整理成結構化的會議紀錄。
+
+<strong style="color:#60a5fa">R（角色）：</strong>
+你是專業的會議秘書，擅長抓重點和列 action items。
+
+<strong style="color:#60a5fa">I（輸入）：</strong>
+[貼上逐字稿或會議筆記]
+
+<strong style="color:#60a5fa">K（標準）：</strong>
+- 分三個區塊：決議事項 / 待辦事項（含負責人與截止日）/ 下次會議議程
+- 每個要點不超過 30 字
+- 用條列式
+
+<strong style="color:#60a5fa">E（範例）：</strong>
+決議事項：
+1. Q2 預算維持原案，不追加。
+2. 新專案由王小明負責，4/15 前提交計畫書。
+
+待辦事項：
+| 事項           | 負責人 | 截止日 |
+|----------------|--------|--------|
+| 提交 Q2 計畫書 | 王小明 | 4/15   |
+
+下次會議：4/10（四）14:00</div>
+
+    <hr>
+
+    <h2>模板 2｜週報 / 月報</h2>
+    <p>適合需要定期整理工作成果、但每次都從零開始寫的人。</p>
+    <div class="code-block"><strong style="color:#60a5fa">S（情境）：</strong>
+這是 [部門/個人] 的 [週/月] 報，報告期間為 [日期範圍]。
+
+<strong style="color:#60a5fa">T（任務）：</strong>
+根據以下工作紀錄，整理成一份結構化的 [週/月] 報。
+
+<strong style="color:#60a5fa">R（角色）：</strong>
+你是擅長歸納與呈現成果的職場顧問。
+
+<strong style="color:#60a5fa">I（輸入）：</strong>
+[貼上本週 / 本月的工作紀錄、筆記、成果清單]
+
+<strong style="color:#60a5fa">K（標準）：</strong>
+- 分四個區塊：本期成果 / 關鍵數據 / 遇到的問題與解法 / 下期計畫
+- 成果用「動詞 + 具體產出 + 影響」格式
+- 總長度不超過 500 字
+
+<strong style="color:#60a5fa">E（範例）：</strong>
+本期成果：
+- 完成客戶 A 提案簡報，獲得正面回饋，預計下週簽約
+- 建立會議紀錄 AI 流程，每週節省約 3 小時
+
+關鍵數據：
+- 本週完成任務：12 / 15（達成率 80%）
+- 客戶滿意度回覆：4.5 / 5</div>
+
+    <hr>
+
+    <h2>模板 3｜數據分析提問</h2>
+    <p>適合需要從數據中找洞察，但不知道怎麼問 AI 的人。</p>
+    <div class="code-block"><strong style="color:#60a5fa">S（情境）：</strong>
+我有一份 [數據類型] 的資料，涵蓋 [時間範圍 / 範圍]，
+目的是 [要回答什麼問題 / 給誰看]。
+
+<strong style="color:#60a5fa">T（任務）：</strong>
+請分析這份數據，找出關鍵發現並給出建議。
+
+<strong style="color:#60a5fa">R（角色）：</strong>
+你是資深商業分析師，擅長從數據中提取可行動的洞察。
+
+<strong style="color:#60a5fa">I（輸入）：</strong>
+[貼上數據或上傳檔案]
+
+<strong style="color:#60a5fa">K（標準）：</strong>
+- 產出 3 個關鍵發現 + 2 個可執行建議
+- 每個發現要附上數據佐證
+- 用非技術人員也能理解的語言
+- 如果有適合的圖表，請一併產出
+
+<strong style="color:#60a5fa">E（範例）：</strong>
+發現一：北區 Q1 營收成長 15%（$2.3M → $2.65M），
+主因是新客戶數增加 22%。建議加大北區行銷投入。
+
+發現二：南區退貨率達 8%（全公司平均 3%），
+需調查品質或物流問題。</div>
+
+    <hr>
+
+    <h2>模板 4｜簡報大綱</h2>
+    <p>適合每次做簡報都不知道從哪一頁開始的人。</p>
+    <div class="code-block"><strong style="color:#60a5fa">S（情境）：</strong>
+我要做一份 [主題] 的簡報，對象是 [聽眾]，
+場合是 [會議類型]，時間約 [X] 分鐘。
+
+<strong style="color:#60a5fa">T（任務）：</strong>
+請幫我規劃簡報大綱，包含每頁標題和要傳達的重點。
+
+<strong style="color:#60a5fa">R（角色）：</strong>
+你是簡報顧問，擅長用清晰的邏輯結構說服聽眾。
+
+<strong style="color:#60a5fa">I（輸入）：</strong>
+[貼上你目前的想法、素材、數據]
+
+<strong style="color:#60a5fa">K（標準）：</strong>
+- 總頁數控制在 [X] 頁以內
+- 每頁一個核心訊息
+- 用「問題→分析→方案→行動」的說服結構
+- 附上每頁的講稿要點（3 句話以內）
+
+<strong style="color:#60a5fa">E（範例）：</strong>
+第 1 頁｜封面
+第 2 頁｜問題：我們的客戶流失率在上升
+第 3 頁｜數據：Q1 流失率 12%，較去年同期上升 3%
+第 4 頁｜原因分析：三個主要因素
+第 5 頁｜方案：建議的三個改善行動
+第 6 頁｜預期效果與時程
+第 7 頁｜下一步行動</div>
+
+    <hr>
+
+    <p><em>以上模板可直接複製使用。先挑一個跟你工作最相關的模板試一次，體驗「規格清楚 → 輸出可用」的差異。</em></p>
+
+  </div>
+</div>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <p><strong>AI 第二專長培養指南</strong> &middot; 2025&ndash;2026 Edition</p>
+  <p style="margin-top:0.5rem">先選路線，再選工具。先做成果，再談理解。先定驗收，才有穩定。</p>
+  <p style="margin-top:1rem;font-size:0.8rem;color:#71717a">本指南收錄來自美國、中國、法國、德國、捷克、瑞典、澳洲、英國、加拿大、荷蘭等國工具，根據全球論壇評測與用戶回饋整理。</p>
+</footer>
+
+</body>
+</html>
