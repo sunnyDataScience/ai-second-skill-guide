@@ -5,32 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 第二專長培養指南</title>
 <style>
-  /* ===== ARK Invest Inspired Design System ===== */
+  /* ===== Sunny Data Science Design System ===== */
   :root {
-    --ark-black: #0a0a0a;
-    --ark-dark: #141419;
-    --ark-navy: #1a1a2e;
-    --ark-blue: #3b82f6;
-    --ark-blue-light: #60a5fa;
-    --ark-blue-glow: rgba(59, 130, 246, 0.15);
-    --ark-accent: #f97316;
-    --ark-accent-light: #fb923c;
+    --ark-black: #050505;
+    --ark-dark: #050505;
+    --ark-navy: #0F2D2B;
+    --ark-blue: #2C918C;
+    --ark-blue-light: #3BA8A3;
+    --ark-blue-glow: rgba(44, 145, 140, 0.10);
+    --ark-accent: #BA4D43;
+    --ark-accent-light: #D4645A;
     --ark-white: #ffffff;
-    --ark-gray-50: #fafafa;
-    --ark-gray-100: #f4f4f5;
-    --ark-gray-200: #e4e4e7;
-    --ark-gray-300: #d4d4d8;
-    --ark-gray-400: #a1a1aa;
-    --ark-gray-500: #71717a;
-    --ark-gray-600: #52525b;
-    --ark-gray-700: #3f3f46;
-    --ark-gray-800: #27272a;
-    --ark-text: #18181b;
-    --ark-text-secondary: #52525b;
-    --ark-green: #22c55e;
-    --ark-red: #ef4444;
-    --ark-purple: #a855f7;
-    --ark-cyan: #06b6d4;
+    --ark-gray-50: #F9FAFB;
+    --ark-gray-100: #f3f4f6;
+    --ark-gray-200: #e5e7eb;
+    --ark-gray-300: #d1d5db;
+    --ark-gray-400: #9ca3af;
+    --ark-gray-500: #6B7280;
+    --ark-gray-600: #4b5563;
+    --ark-gray-700: #374151;
+    --ark-gray-800: #1f2937;
+    --ark-text: #151B28;
+    --ark-text-secondary: #6B7280;
+    --ark-green: #10B981;
+    --ark-red: #EF4444;
+    --ark-purple: #A855F7;
+    --ark-cyan: #3B82F6;
     --font-display: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -53,7 +53,7 @@
   /* ===== Cover Page ===== */
   .cover {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--ark-black) 0%, var(--ark-navy) 50%, #16213e 100%);
+    background: linear-gradient(160deg, #050505 0%, #0A1A19 40%, #0F2D2B 70%, #050505 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,8 +71,8 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 70%, rgba(44, 145, 140, 0.14) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(59, 168, 163, 0.10) 0%, transparent 50%);
     animation: coverGlow 15s ease-in-out infinite alternate;
   }
 
@@ -86,8 +86,8 @@
   .cover-badge {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(44, 145, 140, 0.12);
+    border: 1px solid rgba(44, 145, 140, 0.3);
     border-radius: 100px;
     color: var(--ark-blue-light);
     font-size: 0.85rem;
@@ -108,7 +108,7 @@
   }
 
   .cover h1 span {
-    background: linear-gradient(135deg, var(--ark-blue-light), var(--ark-accent-light));
+    background: linear-gradient(135deg, #3BA8A3, #2C918C);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -145,19 +145,19 @@
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, var(--ark-blue), #2563eb);
-    color: white;
+    background: linear-gradient(135deg, #2C918C, #3BA8A3);
+    color: #050505;
     text-decoration: none;
     border-radius: 12px;
     font-weight: 600;
     font-size: 1.05rem;
     transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 20px rgba(44, 145, 140, 0.3);
   }
 
   .cover-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 30px rgba(44, 145, 140, 0.4);
   }
 
   /* ===== Grid Lines Decoration ===== */
@@ -165,8 +165,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+      linear-gradient(rgba(44, 145, 140, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 145, 140, 0.05) 1px, transparent 1px);
     background-size: 60px 60px;
     z-index: 0;
   }
@@ -232,22 +232,15 @@
   }
 
   .chapter-hero {
-    background: linear-gradient(135deg, var(--ark-dark) 0%, var(--ark-navy) 100%);
+    background: linear-gradient(160deg, #050505 0%, #0A1A19 50%, #0F2D2B 100%);
+    border-top: 1px solid rgba(44, 145, 140, 0.15);
     padding: 5rem 2rem 4rem;
     margin-bottom: 0;
     position: relative;
     overflow: hidden;
   }
 
-  .chapter-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(to bottom, transparent, var(--ark-gray-50));
-  }
+  .chapter-hero::after { display: none; }
 
   .chapter-hero-inner {
     max-width: 900px;
@@ -364,7 +357,7 @@
   }
 
   thead {
-    background: linear-gradient(135deg, var(--ark-dark), var(--ark-navy));
+    background: linear-gradient(135deg, #050505, #0F2D2B);
   }
 
   thead th {
@@ -541,7 +534,7 @@
   .stat-number {
     font-size: 2.2rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--ark-blue), var(--ark-accent));
+    background: linear-gradient(135deg, #2C918C, #3BA8A3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -647,6 +640,86 @@
     thead th, tbody td { padding: 0.6rem 0.7rem; }
   }
 
+  /* ===== CTA Banner ===== */
+  .cta-banner {
+    background: linear-gradient(135deg, #050505 0%, #0F2D2B 50%, #050505 100%);
+    border: 1px solid rgba(44, 145, 140, 0.2);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    margin: 3rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(44, 145, 140, 0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-banner-inner { position: relative; z-index: 1; }
+  .cta-banner h3 {
+    color: var(--ark-white);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+  }
+  .cta-banner p {
+    color: var(--ark-gray-400);
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem;
+  }
+  .cta-banner .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    background: linear-gradient(135deg, #2C918C, #3BA8A3);
+    color: #050505;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(44, 145, 140, 0.25);
+  }
+  .cta-banner .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(44, 145, 140, 0.4);
+  }
+  .cta-strip {
+    background: linear-gradient(90deg, #050505, #0F2D2B, #050505);
+    border-top: 1px solid rgba(44, 145, 140, 0.15);
+    border-bottom: 1px solid rgba(44, 145, 140, 0.15);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  .cta-strip p {
+    max-width: 900px;
+    margin: 0 auto 1rem;
+    color: var(--ark-gray-400);
+    font-size: 0.92rem;
+  }
+  .cta-strip .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.5rem;
+    background: rgba(44, 145, 140, 0.15);
+    border: 1px solid rgba(44, 145, 140, 0.3);
+    color: #3BA8A3;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: all 0.3s;
+  }
+  .cta-strip .cta-btn:hover {
+    background: rgba(44, 145, 140, 0.25);
+    transform: translateY(-1px);
+  }
+
   /* ===== Print ===== */
   @media print {
     .cover { min-height: auto; padding: 3rem 2rem; break-after: page; }
@@ -681,7 +754,7 @@
   .strike-letter {
     font-size: 2rem;
     font-weight: 900;
-    background: linear-gradient(135deg, var(--ark-blue), var(--ark-blue-light));
+    background: linear-gradient(135deg, #2C918C, #3BA8A3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -712,7 +785,7 @@
   }
 
   .tpl-card-header {
-    background: linear-gradient(135deg, var(--ark-dark), var(--ark-navy));
+    background: linear-gradient(135deg, #050505, #0F2D2B);
     padding: 1.25rem 1.5rem;
     display: flex;
     align-items: center;
@@ -939,7 +1012,7 @@
 <section class="cover" id="top">
   <div class="cover-grid"></div>
   <div class="cover-content">
-    <div class="cover-badge">Free Guide &middot; 2025&ndash;2026</div>
+    <div class="cover-badge">Free Guide &middot; 2025&ndash;2026 &middot; 桑尼資料科學</div>
     <h1>AI <span>第二專長</span><br>培養指南</h1>
     <p class="cover-subtitle">
       30 天內，用 AI 做出一個你能拿去用、拿去講、甚至拿去變現的成果。<br>
@@ -1014,6 +1087,7 @@
       <li><a href="#ch11"><span class="toc-num">11</span><span class="toc-title">下一步：你想走快一點嗎？</span></a></li>
       <li><a href="#appendix-a"><span class="toc-num">A</span><span class="toc-title">一頁速查卡</span></a></li>
       <li><a href="#appendix-b"><span class="toc-num">B</span><span class="toc-title">模板包</span></a></li>
+      <li><a href="#about-author"><span class="toc-num">&nbsp;</span><span class="toc-title">關於作者</span></a></li>
     </ul>
   </div>
 </section>
@@ -1234,6 +1308,17 @@
         <p>「先把技能包成可賣的服務。」把現有能力 + AI 工作流打包成有明確交付物的服務。</p>
       </div>
     </div>
+
+    <hr>
+
+    <h2>我的路線卡</h2>
+    <p>現在寫下來：</p>
+    <div style="background:var(--ark-blue-glow);border:2px dashed var(--ark-blue);border-radius:16px;padding:2rem;margin:1.5rem 0">
+      <p style="margin-bottom:1rem"><strong>我的路線：</strong> ___________</p>
+      <p style="margin-bottom:1rem"><strong>30 天最小成果：</strong> ___________</p>
+      <p style="margin-bottom:0"><strong>今天就看：</strong> Ch4（作戰卡）＋ Ch7（30 天計畫）</p>
+    </div>
+    <p>截圖存下來，這是你接下來 30 天的方向。當你能拿出一個具體的路線選擇時，代表你已經完成了從「迷惘」到「有方向」的第一層升級。</p>
 
   </div>
 </div>
@@ -1461,6 +1546,12 @@
   </div>
 </div>
 
+<!-- CTA: After STRIKE Framework -->
+<div class="cta-strip">
+  <p>想知道怎麼把 STRIKE 框架用在你的工作場景？桑尼資料科學提供免費路線諮詢，幫你找到最適合的 AI 應用切入點。</p>
+  <a href="https://sunnedatascience.lovable.app/about" target="_blank" class="cta-btn">了解更多 &rarr;</a>
+</div>
+
 <!-- ============================== CHAPTER 6 ============================== -->
 <div class="chapter-hero" id="ch6">
   <div class="chapter-hero-inner">
@@ -1499,26 +1590,53 @@
       <table>
         <thead><tr><th>任務類別</th><th>首選工具</th><th>國家</th><th>替代方案</th><th>選型理由</th></tr></thead>
         <tbody>
-          <tr><td><strong>AI 助手</strong></td><td>ChatGPT / Claude</td><td>🇺🇸</td><td>DeepSeek 🇨🇳 / Mistral 🇫🇷</td><td>生態系最全；DeepSeek 免費</td></tr>
-          <tr><td><strong>E2E 工作站</strong></td><td>Skywork / NotebookLM</td><td>🇨🇳 / 🇺🇸</td><td>Notion AI 🇺🇸</td><td>多格式一站出；免費+播客</td></tr>
-          <tr><td><strong>深度研究</strong></td><td>NotebookLM / Perplexity</td><td>🇺🇸</td><td>ChatGPT Deep Research</td><td>免費上傳 50 份文件</td></tr>
-          <tr><td><strong>數據分析</strong></td><td>Code Interpreter / Artifacts</td><td>🇺🇸</td><td>Julius AI 🇺🇸</td><td>上傳 CSV 即分析出圖</td></tr>
-          <tr><td><strong>簡報產出</strong></td><td>Gamma / Skywork</td><td>🇺🇸 / 🇨🇳</td><td>Plus AI / Canva 🇦🇺</td><td>Gamma 最快</td></tr>
-          <tr><td><strong>文字→視覺化</strong></td><td>Napkin AI</td><td>🇺🇸</td><td>Lovart 🇨🇳 / Miro 🇳🇱</td><td>貼文字自動出圖，免費</td></tr>
-          <tr><td><strong>圖像生成</strong></td><td>Midjourney / GPT Image</td><td>🇺🇸</td><td>Ideogram 🇨🇦 / Krea 🇺🇸</td><td>藝術最強；文字渲染 90%</td></tr>
-          <tr><td><strong>影片生成</strong></td><td>Runway / Kling</td><td>🇺🇸 / 🇨🇳</td><td>Sora / Higgsfield 🇺🇸</td><td>創意最全；性價比最高</td></tr>
-          <tr><td><strong>視覺設計</strong></td><td>Canva AI</td><td>🇦🇺</td><td>Figma AI 🇺🇸</td><td>非設計師首選</td></tr>
-          <tr><td><strong>自動化</strong></td><td>n8n / Make</td><td>🇩🇪 / 🇨🇿</td><td>&mdash;</td><td>AI 原生最強；入門友善</td></tr>
-          <tr><td><strong>App 建構</strong></td><td>Lovable / Bolt.new</td><td>🇸🇪 / 🇺🇸</td><td>v0 🇺🇸</td><td>全端最快；瀏覽器零設定</td></tr>
-          <tr><td><strong>程式輔助</strong></td><td>Cursor / Copilot</td><td>🇺🇸</td><td>Claude Code 🇺🇸</td><td>4.9/5 分；最便宜</td></tr>
+          <tr><td><strong>AI 助手</strong></td><td>ChatGPT / Claude</td><td>US</td><td>DeepSeek CN / Mistral FR</td><td>生態系最全；DeepSeek 免費</td></tr>
+          <tr><td><strong>E2E 工作站</strong></td><td>Skywork / NotebookLM</td><td>CN / US</td><td>Notion AI US</td><td>多格式一站出；免費+播客</td></tr>
+          <tr><td><strong>深度研究</strong></td><td>NotebookLM / Perplexity</td><td>US</td><td>ChatGPT Deep Research</td><td>免費上傳 50 份文件</td></tr>
+          <tr><td><strong>數據分析</strong></td><td>Code Interpreter / Artifacts</td><td>US</td><td>Julius AI US</td><td>上傳 CSV 即分析出圖</td></tr>
+          <tr><td><strong>簡報產出</strong></td><td>Gamma / Skywork</td><td>US / CN</td><td>Plus AI / Canva AU</td><td>Gamma 最快</td></tr>
+          <tr><td><strong>文字→視覺化</strong></td><td>Napkin AI</td><td>US</td><td>Lovart CN / Miro NL</td><td>貼文字自動出圖，免費</td></tr>
+          <tr><td><strong>圖像生成</strong></td><td>Midjourney / GPT Image</td><td>US</td><td>Ideogram CA / Krea US</td><td>藝術最強；文字渲染 90%</td></tr>
+          <tr><td><strong>影片生成</strong></td><td>Runway / Kling</td><td>US / CN</td><td>Sora / Higgsfield US</td><td>創意最全；性價比最高</td></tr>
+          <tr><td><strong>視覺設計</strong></td><td>Canva AI</td><td>AU</td><td>Figma AI US</td><td>非設計師首選</td></tr>
+          <tr><td><strong>自動化</strong></td><td>n8n / Make</td><td>DE / CZ</td><td>&mdash;</td><td>AI 原生最強；入門友善</td></tr>
+          <tr><td><strong>App 建構</strong></td><td>Lovable / Bolt.new</td><td>SE / US</td><td>v0 US</td><td>全端最快；瀏覽器零設定</td></tr>
+          <tr><td><strong>程式輔助</strong></td><td>Cursor / Copilot</td><td>US</td><td>Claude Code US</td><td>4.9/5 分；最便宜</td></tr>
         </tbody>
       </table>
     </div>
 
     <hr>
 
+    <h2>重點類別與路線建議</h2>
+
+    <h3>AI 助手：你的主力引擎</h3>
+    <p>不管哪條路線，AI 助手都是你每天開的第一個工具。差別在用法——A 拿它寫 Email 和摘要，B 拿它寫文章和企劃，C 拿它分析數據，D 拿它寫提案和交付物。</p>
+    <p>不只有美國的 ChatGPT 和 Claude。中國的 <strong>DeepSeek</strong> 完全免費、數學推理準確率 90%、API 成本僅 ChatGPT 的 1/10；法國的 <strong>Mistral Le Chat</strong> 原生支援歐洲隱私法規，Pro 方案比 ChatGPT 便宜 25%。</p>
+    <p>對預算有限的人來說，DeepSeek + NotebookLM 的免費組合，已經能覆蓋大多數文字和研究任務。</p>
+
+    <h3>E2E 工作站與深度研究</h3>
+    <p><strong>NotebookLM</strong> 是目前最被低估的工具之一。它免費、可上傳 50 份文件做交叉分析，還能自動產出 AI 播客（兩位 AI 主持人討論你的文件內容，自然到會互相打斷）。對<strong>路線 B</strong> 想做作品的人，這是免費的研究利器。</p>
+    <p><strong>Skywork AI</strong> 則是多格式產出的 E2E 冠軍——文件、簡報、試算表、播客、網頁都在一個平台內完成。對<strong>路線 D</strong> 的接案者來說，一站完成多格式交付物，效率差很多。</p>
+
+    <h3>數據分析：路線 C 的核心戰場</h3>
+    <p>如果你是路線 C，第一步不是學 Python，而是把數據丟進 Code Interpreter，用 STRIKE 告訴它你要什麼分析。對一個行銷專員來說，這樣做一份「上月活動成效分析」只需要 30 分鐘，而不是三天。<strong>路線 A</strong> 如果每週花時間手動做報表，Sheets + Gemini 讓你在試算表裡直接用 AI 輔助。</p>
+
+    <h3>文字→視覺化：Napkin AI</h3>
+    <p>多數人做完分析或寫完文章後，還要再開一個設計工具做圖。<strong>Napkin AI</strong> 讓你直接貼文字就出圖——流程圖、心智圖、資訊圖、商業框架圖都行，500 萬+用戶，免費方案每週 500 次足夠日常使用。四條路線都用得到。</p>
+
+    <h3>自動化：n8n 為什麼領先</h3>
+    <p>來自德國的 <strong>n8n</strong> 是目前全球社群最活躍的自動化平台：GitHub 40,000+ Stars、23 萬活躍用戶、5,000+ 社群模板。更關鍵的是它內建 70+ AI/LangChain 節點——是三大自動化工具中唯一真正為 AI Agent 設計的。可自架（資料不外流），複雜邏輯無上限。</p>
+    <p><strong>路線 A</strong> 的核心任務就是自動化重複工作。先用 Make 入門（視覺化拖拉），等你準備好再升級 n8n。<strong>路線 D</strong> 則用 n8n 把服務流程標準化，每次接單都省掉重複步驟。</p>
+
+    <h3>AI App 建構：Lovable、Bolt、v0</h3>
+    <p>這是 2025–2026 年成長最快的新類別。瑞典的 <strong>Lovable</strong> 兩個月就做到 $20M 年營收，全端 App 產出速度業界最快。美國的 <strong>Bolt.new</strong> 在瀏覽器內零設定開發，月訪問 900 萬+。<strong>v0</strong> 則專注在 React UI 元件品質，適合前端需求。</p>
+    <p>主要服務<strong>路線 D</strong>（把 App 開發包裝成服務）和<strong>路線 B</strong>（用可互動的作品展示能力）。</p>
+
+    <hr>
+
     <h2>你的路線工具包</h2>
-    <p>從第一個開始用就好。</p>
+    <p>多數人以為要學很多工具才能開始，但真正拉開差距的是你有沒有用一個工具跑通一個完整的成果。以下是每條路線的優先工具，從第一個開始用就好。</p>
 
     <div class="route-cards">
       <div class="route-card route-card-a">
@@ -1566,17 +1684,30 @@
       <table>
         <thead><tr><th>國家</th><th>代表工具</th><th>共同特色</th></tr></thead>
         <tbody>
-          <tr><td>🇺🇸 美國</td><td>ChatGPT、Claude、Midjourney、Runway、Cursor</td><td>生態系最完整</td></tr>
-          <tr><td>🇨🇳 中國</td><td>DeepSeek、Skywork、Kling、Lovart</td><td>開源/低價，性價比極高</td></tr>
-          <tr><td>🇫🇷 法國</td><td>Mistral Le Chat</td><td>歐洲隱私合規首選</td></tr>
-          <tr><td>🇩🇪 德國</td><td>n8n</td><td>開源自動化霸主</td></tr>
-          <tr><td>🇸🇪 瑞典</td><td>Lovable</td><td>App 建構速度冠軍</td></tr>
-          <tr><td>🇦🇺 澳洲</td><td>Canva</td><td>非設計師的全球標準</td></tr>
-          <tr><td>🇬🇧 英國</td><td>Stable Diffusion</td><td>完全開源免費</td></tr>
-          <tr><td>🇨🇦 加拿大</td><td>Ideogram</td><td>文字渲染業界第一</td></tr>
+          <tr><td>US 美國</td><td>ChatGPT、Claude、Midjourney、Runway、Cursor</td><td>生態系最完整</td></tr>
+          <tr><td>CN 中國</td><td>DeepSeek、Skywork、Kling、Lovart</td><td>開源/低價，性價比極高</td></tr>
+          <tr><td>FR 法國</td><td>Mistral Le Chat</td><td>歐洲隱私合規首選</td></tr>
+          <tr><td>DE 德國</td><td>n8n</td><td>開源自動化霸主</td></tr>
+          <tr><td>SE 瑞典</td><td>Lovable</td><td>App 建構速度冠軍</td></tr>
+          <tr><td>AU 澳洲</td><td>Canva</td><td>非設計師的全球標準</td></tr>
+          <tr><td>GB 英國</td><td>Stable Diffusion</td><td>完全開源免費</td></tr>
+          <tr><td>CA 加拿大</td><td>Ideogram</td><td>文字渲染業界第一</td></tr>
         </tbody>
       </table>
     </div>
+
+    <hr>
+
+    <h2>怎麼用這張矩陣</h2>
+    <ol>
+      <li>確認你是哪條路線（A／B／C／D）</li>
+      <li>翻到「你的路線工具包」，看優先順序</li>
+      <li>從第一個（必備）開始，先用免費版跑通一個任務</li>
+      <li>確認適合就付費升級／加下一個工具；不適合就換同類別的替代方案</li>
+      <li>一個任務用一個工具，用到熟再換</li>
+    </ol>
+    <blockquote><strong>原則：先選路線，再選工具。一個任務用一個工具，用到熟再換。</strong></blockquote>
+    <p><em>本矩陣收錄來自美國、中國、法國、德國、捷克、瑞典、澳洲、英國、加拿大、荷蘭等國工具，根據 2025–2026 年全球論壇評測與用戶回饋整理。建議每季複查一次。</em></p>
 
   </div>
 </div>
@@ -1591,6 +1722,16 @@
 </div>
 <div class="chapter-body">
   <div class="chapter chapter-body-inner">
+
+    <h2>開始前</h2>
+    <ol>
+      <li>確認你的路線（Ch2）</li>
+      <li>看過你的作戰卡（Ch4）</li>
+      <li>選好你的主要工具（Ch6）</li>
+    </ol>
+    <p>準備好了？Day 1 就是今天。不用等到下週一，不用等到「狀態好」——現在翻到 Day 1，開始。</p>
+
+    <hr>
 
     <div class="week-progress">
       <div class="week-item active">
@@ -1617,7 +1758,9 @@
 
     <hr>
 
-    <h2>Week 1｜建立手感</h2>
+    <h2>Week 1｜建立手感（輸入→輸出→修正）</h2>
+    <p><strong>本週目標：</strong>習慣用 AI 工作，體會「規格清楚→輸出可用」的差異。</p>
+    <p>你可能正處在「知道 AI 能做事，但不知道怎麼把它變成日常工具」的階段。這一週的重點就是讓你的手跟腦先動起來。</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
@@ -1632,8 +1775,17 @@
         </tbody>
       </table>
     </div>
+    <blockquote><strong>週末產出：</strong>1 個你自己的 STRIKE 模板（已驗證可用）</blockquote>
+    <p><strong>常見卡點：</strong></p>
+    <ul>
+      <li>「不知道要問什麼」→ 從你最煩的重複工作開始，那個你每次做都嘆氣的任務</li>
+      <li>「輸出不好用」→ 加 K（標準）和 E（範例），指令會立刻改善</li>
+    </ul>
+    <p>當你能拿出一個經過實測的 STRIKE 模板時，代表你已經完成了「從隨便問到下規格」的升級。</p>
 
-    <h2>Week 2｜做出第一個成果</h2>
+    <h2>Week 2｜做出第一個成果（可交付）</h2>
+    <p><strong>本週目標：</strong>完成你的最小成果初版。不求完美，求完成。</p>
+    <p>多數人以為要「準備好」才能開始做，但真正拉開差距的是「先做出來再修」。完成一個粗糙但完整的成果，永遠比十個精美的草稿更有價值。</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
@@ -1648,8 +1800,16 @@
         </tbody>
       </table>
     </div>
+    <blockquote><strong>週末產出：</strong>1 個完整的初版成果</blockquote>
+    <p><strong>常見卡點：</strong></p>
+    <ul>
+      <li>「覺得還不夠好」→ 完成 > 完美，先交出再迭代</li>
+      <li>「範圍太大做不完」→ 砍到最小，一份報告 > 一整套系統</li>
+    </ul>
 
-    <h2>Week 3｜把成果變 SOP</h2>
+    <h2>Week 3｜把成果變 SOP（可複用）</h2>
+    <p><strong>本週目標：</strong>把你做成果的過程，整理成可重複的步驟。</p>
+    <p>這一週做的事情，就像把一道你成功煮過的菜寫成食譜——下次再做，不用靠記憶，照著步驟走就行。</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
@@ -1664,8 +1824,16 @@
         </tbody>
       </table>
     </div>
+    <blockquote><strong>週末產出：</strong>1 份可重複使用的 SOP + STRIKE 模板</blockquote>
+    <p><strong>常見卡點：</strong></p>
+    <ul>
+      <li>「步驟太多寫不完」→ 只寫關鍵步驟，細節用 STRIKE 模板補</li>
+      <li>「第二次做的結果不一樣」→ 檢查輸入是否一致，加更多 K 和 E</li>
+    </ul>
 
-    <h2>Week 4｜把 SOP 變案例</h2>
+    <h2>Week 4｜把 SOP 變案例（可展示）</h2>
+    <p><strong>本週目標：</strong>把你的成果包裝成可展示、可被看見的案例。</p>
+    <p>到了這一週，你手上已經有成果、有流程、有模板。接下來只剩一件事：讓別人看見你做了什麼。</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Day</th><th>任務</th><th>時間</th></tr></thead>
@@ -1680,6 +1848,22 @@
         </tbody>
       </table>
     </div>
+    <blockquote><strong>週末產出：</strong>1 個已發布的案例 + 30 天覆盤筆記</blockquote>
+    <p><strong>常見卡點：</strong></p>
+    <ul>
+      <li>「不敢發出去」→ 第一次本來就不完美，重點是「被看見」。每個人的第一篇都是粗糙的，這很正常</li>
+      <li>「不知道發去哪」→ LinkedIn 最適合職場類；社群／部落格也行</li>
+    </ul>
+
+    <hr>
+
+    <h2>Day 1 立即行動</h2>
+    <p>現在就做這件事：</p>
+    <div style="background:var(--ark-blue-glow);border:2px solid var(--ark-blue);border-radius:16px;padding:2rem;margin:1.5rem 0;text-align:center">
+      <p style="font-size:1.2rem;font-weight:700;color:var(--ark-text);margin-bottom:0.5rem">寫下一句話：</p>
+      <p style="font-size:1.3rem;font-weight:800;color:var(--ark-blue);margin-bottom:0">「我要在 30 天內做出 ___________。」</p>
+    </div>
+    <p>不用想太久。寫完，就是你跟自己的第一個承諾。接下來的 29 天，我們一步一步走。</p>
 
   </div>
 </div>
@@ -1797,6 +1981,15 @@
   </div>
 </div>
 
+<!-- CTA: After Monetization -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <h3>從技能到收入，你只差一個行動</h3>
+    <p>已經有路線和成果了？讓桑尼資料科學幫你規劃從「能做」到「能賣」的最後一哩路。</p>
+    <a href="https://sunnedatascience.lovable.app/about" target="_blank" class="cta-btn">預約免費諮詢 &rarr;</a>
+  </div>
+</div>
+
 <!-- ============================== CHAPTER 10 ============================== -->
 <div class="chapter-hero" id="ch10">
   <div class="chapter-hero-inner">
@@ -1907,6 +2100,15 @@
 
     <p><strong>你已經有路線圖了。接下來的事情只有一件：繼續做。</strong></p>
 
+    <!-- CTA: Primary conversion in Ch11 -->
+    <div class="cta-banner" style="margin-top: 3rem;">
+      <div class="cta-banner-inner">
+        <h3>想走快一點？讓桑尼陪你走</h3>
+        <p>不管你選哪個等級，第一步都是了解你現在在哪、想去哪裡。<br>桑尼資料科學提供 1 對 1 路線諮詢，幫你把這份指南變成你的實戰計畫。</p>
+        <a href="https://sunnedatascience.lovable.app" target="_blank" class="cta-btn">立即了解桑尼資料科學 &rarr;</a>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1981,18 +2183,18 @@
       <table>
         <thead><tr><th>任務</th><th>首選工具</th><th>國家</th><th>替代方案</th></tr></thead>
         <tbody>
-          <tr><td>AI 助手</td><td>ChatGPT / Claude</td><td>🇺🇸</td><td>DeepSeek 🇨🇳 / Mistral 🇫🇷</td></tr>
-          <tr><td>E2E 工作站</td><td>Skywork / NotebookLM</td><td>🇨🇳 / 🇺🇸</td><td>Notion AI 🇺🇸</td></tr>
-          <tr><td>深度研究</td><td>NotebookLM / Perplexity</td><td>🇺🇸</td><td>ChatGPT Deep Research</td></tr>
-          <tr><td>數據分析</td><td>Code Interpreter / Artifacts</td><td>🇺🇸</td><td>Julius AI / Sheets+Gemini</td></tr>
-          <tr><td>簡報產出</td><td>Gamma / Skywork</td><td>🇺🇸 / 🇨🇳</td><td>Plus AI / Canva 🇦🇺</td></tr>
-          <tr><td>文字→視覺化</td><td>Napkin AI</td><td>🇺🇸</td><td>Lovart 🇨🇳 / Miro 🇳🇱</td></tr>
-          <tr><td>圖像生成</td><td>Midjourney / GPT Image</td><td>🇺🇸</td><td>Ideogram 🇨🇦 / Krea 🇺🇸</td></tr>
-          <tr><td>影片生成</td><td>Runway / Kling</td><td>🇺🇸 / 🇨🇳</td><td>Sora 🇺🇸 / Higgsfield 🇺🇸</td></tr>
-          <tr><td>視覺設計</td><td>Canva AI</td><td>🇦🇺</td><td>Figma AI 🇺🇸</td></tr>
-          <tr><td>自動化</td><td>n8n / Make</td><td>🇩🇪 / 🇨🇿</td><td>&mdash;</td></tr>
-          <tr><td>App 建構</td><td>Lovable / Bolt</td><td>🇸🇪 / 🇺🇸</td><td>v0 🇺🇸</td></tr>
-          <tr><td>程式輔助</td><td>Cursor / Copilot</td><td>🇺🇸</td><td>Claude Code 🇺🇸</td></tr>
+          <tr><td>AI 助手</td><td>ChatGPT / Claude</td><td>US</td><td>DeepSeek CN / Mistral FR</td></tr>
+          <tr><td>E2E 工作站</td><td>Skywork / NotebookLM</td><td>CN / US</td><td>Notion AI US</td></tr>
+          <tr><td>深度研究</td><td>NotebookLM / Perplexity</td><td>US</td><td>ChatGPT Deep Research</td></tr>
+          <tr><td>數據分析</td><td>Code Interpreter / Artifacts</td><td>US</td><td>Julius AI / Sheets+Gemini</td></tr>
+          <tr><td>簡報產出</td><td>Gamma / Skywork</td><td>US / CN</td><td>Plus AI / Canva AU</td></tr>
+          <tr><td>文字→視覺化</td><td>Napkin AI</td><td>US</td><td>Lovart CN / Miro NL</td></tr>
+          <tr><td>圖像生成</td><td>Midjourney / GPT Image</td><td>US</td><td>Ideogram CA / Krea US</td></tr>
+          <tr><td>影片生成</td><td>Runway / Kling</td><td>US / CN</td><td>Sora US / Higgsfield US</td></tr>
+          <tr><td>視覺設計</td><td>Canva AI</td><td>AU</td><td>Figma AI US</td></tr>
+          <tr><td>自動化</td><td>n8n / Make</td><td>DE / CZ</td><td>&mdash;</td></tr>
+          <tr><td>App 建構</td><td>Lovable / Bolt</td><td>SE / US</td><td>v0 US</td></tr>
+          <tr><td>程式輔助</td><td>Cursor / Copilot</td><td>US</td><td>Claude Code US</td></tr>
         </tbody>
       </table>
     </div>
@@ -2374,10 +2576,61 @@
   </div>
 </div>
 
+<!-- ============================== ABOUT AUTHOR ============================== -->
+<div class="chapter-hero" id="about-author">
+  <div class="chapter-hero-inner">
+    <div class="chapter-num">About the Author</div>
+    <h1>關於作者</h1>
+    <p class="lead">為什麼創辦桑尼資料科學？</p>
+  </div>
+</div>
+<div class="chapter-body">
+  <div class="chapter chapter-body-inner">
+
+    <p>我的職涯橫跨資料科學與產品管理，在企業端導入過 AI 專案，也在新創帶過產品從零到一。這段跨領域的經歷讓我看到一件事：AI 不是工程師的專利，每個人都能學會，而且學會之後，職涯的選擇權會完全不同。</p>
+
+    <p>但我也看到另一個現實 &mdash; 想學 AI 的人，往往找不到好的陪跑系統。線上課程看完就忘、遇到問題沒人問、學了理論不知道怎麼用在工作上。大家缺的不是資源，是方法和陪伴。</p>
+
+    <p>所以我創辦了桑尼資料科學，打造一個「學得會、做得出、用得上」的學習平台。從免費指南開始，到社群會員、實戰營，每一步都是為了幫你真正培養 AI 第二專長 &mdash; 不是考證照，是能解決問題、能創造價值的真功夫。</p>
+
+    <blockquote>
+      <p>「我相信每個人都能培養 AI 第二專長，<br>關鍵不是天賦，而是方法和陪伴。」</p>
+      <p style="margin-top:0.5rem;font-weight:600">&mdash; Sunny 桑尼</p>
+    </blockquote>
+
+    <h2>桑尼資料科學 創辦人／AI 應用教育者</h2>
+
+    <ul>
+      <li>國立台灣大學電子工程碩士</li>
+      <li>世界前 10 強外商半導體工程師</li>
+      <li>國內頂尖上市櫃企業資料科學家</li>
+      <li>資策會 &amp; 大專院校 AI 講師</li>
+      <li>累計培訓 200+ 位專業人士</li>
+      <li>Z 世代連續創業家</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ============================== COPYRIGHT ============================== -->
+<div class="chapter-hero" id="copyright" style="min-height:auto; padding:4rem 2rem;">
+  <div class="chapter-hero-inner" style="max-width:700px; text-align:left;">
+    <h2 style="color:var(--ark-white); font-size:1.5rem; margin-bottom:1.5rem;">版權聲明</h2>
+    <p style="color:var(--ark-gray-400); line-height:1.9; font-size:0.92rem;">
+      Copyright &copy; 2026 桑尼資料科學. All rights reserved.<br><br>
+      本書內容受著作權法保護。未經作者書面授權，不得以任何形式重製、散布、公開傳輸或改作本書全部或部分內容。<br><br>
+      本書所提及之產品名稱、商標均屬各該公司所有，僅作為說明用途，無侵權之意。<br><br>
+      書中所述之工具、定價與功能資訊以 2025&ndash;2026 年為準，實際狀況可能隨時間變動，請以各工具官方網站為主。<br><br>
+      本書提供之資訊僅供參考，不構成任何投資、職涯或法律建議。
+    </p>
+  </div>
+</div>
+
 <!-- ============================== FOOTER ============================== -->
 <footer class="footer">
-  <p><strong>AI 第二專長培養指南</strong> &middot; 2025&ndash;2026 Edition</p>
+  <p><strong>AI 第二專長培養指南</strong> &middot; 2025&ndash;2026 Edition &middot; 桑尼資料科學</p>
   <p style="margin-top:0.5rem">先選路線，再選工具。先做成果，再談理解。先定驗收，才有穩定。</p>
+  <p style="margin-top:0.5rem">Copyright &copy; 2026 桑尼資料科學. All rights reserved.</p>
   <p style="margin-top:1rem;font-size:0.8rem;color:#71717a">本指南收錄來自美國、中國、法國、德國、捷克、瑞典、澳洲、英國、加拿大、荷蘭等國工具，根據全球論壇評測與用戶回饋整理。</p>
 </footer>
 

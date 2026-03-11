@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "muhammara": "^6.0.4",
+    "playwright": "^1.58.2"
+  }
+}
